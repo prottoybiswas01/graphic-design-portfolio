@@ -143,35 +143,35 @@ export const About = () => {
           }}
           className="about-grid"
         >
-          {/* Left: Exact Archway (House/Dome shape: rounded top, flat bottom) Backdrop Avatar */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '440px', position: 'relative' }}>
+          {/* Left: Much Larger Archway Backdrop Avatar with Head Popping Out */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '490px', position: 'relative' }}>
             {/* Dark Archway (Dome/Doorway shape) Backdrop */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '340px',
-                height: '380px',
-                borderTopLeftRadius: '170px',
-                borderTopRightRadius: '170px',
+                width: '410px',
+                height: '420px',
+                borderTopLeftRadius: '205px',
+                borderTopRightRadius: '205px',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px',
-                background: '#191919',
-                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.7)',
+                background: '#181818',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
                 zIndex: 1,
                 border: '1px solid rgba(255, 255, 255, 0.05)'
               }}
             />
 
-            {/* Layer 1: Body masked INSIDE archway shape at bottom */}
+            {/* Layer 1: Body masked INSIDE large archway shape at bottom */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '340px',
-                height: '380px',
-                borderTopLeftRadius: '170px',
-                borderTopRightRadius: '170px',
+                width: '410px',
+                height: '420px',
+                borderTopLeftRadius: '205px',
+                borderTopRightRadius: '205px',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px',
                 overflow: 'hidden',
@@ -186,7 +186,7 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '430px',
+                  height: '480px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -196,13 +196,13 @@ export const About = () => {
               />
             </div>
 
-            {/* Layer 2: Head popping OUT above archway top */}
+            {/* Layer 2: Head popping OUT significantly above archway top */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '340px',
-                height: '430px',
+                width: '410px',
+                height: '480px',
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
@@ -217,13 +217,14 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '430px',
+                  height: '480px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
               />
             </div>
           </div>
+
 
 
           {/* Right: Bio Text & Download CV Button */}

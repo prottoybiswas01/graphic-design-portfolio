@@ -202,18 +202,18 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Large Round Circle Avatar Backdrop */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '480px', position: 'relative' }}>
+          {/* Right Column: Much Larger Round Circle Avatar Backdrop with Dramatic Pop-Out Head */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '540px', position: 'relative' }}>
             {/* Ambient Orange Backlight Glow */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '10px',
-                width: '430px',
-                height: '430px',
+                width: '500px',
+                height: '500px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.25) 0%, rgba(253, 111, 0, 0) 70%)',
-                filter: 'blur(35px)',
+                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.28) 0%, rgba(253, 111, 0, 0) 70%)',
+                filter: 'blur(40px)',
                 zIndex: 0
               }}
             />
@@ -223,11 +223,11 @@ export const Hero = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '410px',
-                height: '410px',
+                width: '460px',
+                height: '460px',
                 borderRadius: '50%',
-                background: '#191919',
-                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.7)',
+                background: '#181818',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
                 zIndex: 1,
                 border: '1px solid rgba(255, 255, 255, 0.05)'
               }}
@@ -238,8 +238,8 @@ export const Hero = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '410px',
-                height: '410px',
+                width: '460px',
+                height: '460px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 zIndex: 2
@@ -253,7 +253,7 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '470px',
+                  height: '530px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -263,13 +263,13 @@ export const Hero = () => {
               />
             </div>
 
-            {/* Layer 2: Head popping OUT above large circle top */}
+            {/* Layer 2: Head popping OUT significantly above circle top */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '410px',
-                height: '470px',
+                width: '460px',
+                height: '530px',
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
@@ -284,13 +284,14 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '470px',
+                  height: '530px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
               />
             </div>
           </div>
+
 
 
         </div>
