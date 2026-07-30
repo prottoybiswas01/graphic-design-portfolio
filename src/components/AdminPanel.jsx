@@ -719,21 +719,42 @@ export const AdminPanel = ({ isOpen, onClose }) => {
               {/* Tab 6: MongoDB Export & API Integration */}
               {activeTab === 'mongodb' && (
                 <div>
-                  <h3 style={{ fontSize: '1.4rem', marginBottom: '20px' }}>MongoDB & Data Sync Tools</h3>
+                  <h3 style={{ fontSize: '1.4rem', marginBottom: '20px' }}>MongoDB Atlas & Serverless API Tools</h3>
 
                   <div className="glass-panel" style={{ padding: '24px', borderRadius: 'var(--radius-md)', marginBottom: '24px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-                      <Database size={24} color="var(--accent-emerald)" />
-                      <h4 style={{ fontSize: '1.1rem' }}>Download MongoDB JSON Collection Dump</h4>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <Database size={24} color="var(--accent-emerald)" />
+                        <h4 style={{ fontSize: '1.1rem' }}>MongoDB Atlas Cluster Status</h4>
+                      </div>
+                      <span
+                        style={{
+                          padding: '4px 14px',
+                          borderRadius: 'var(--radius-full)',
+                          fontSize: '0.8rem',
+                          fontWeight: 700,
+                          background: dbConnected ? 'rgba(16,185,129,0.15)' : 'rgba(245,158,11,0.15)',
+                          color: dbConnected ? 'var(--accent-emerald)' : 'var(--accent-amber)',
+                          border: `1px solid ${dbConnected ? 'rgba(16,185,129,0.4)' : 'rgba(245,158,11,0.4)'}`
+                        }}
+                      >
+                        {dbConnected ? '🟢 Connected to MongoDB Atlas' : '🟡 Local Storage Offline Cache'}
+                      </span>
                     </div>
 
                     <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '18px', lineHeight: 1.6 }}>
-                      Export all live portfolio data (profile, projects, skills, messages) formatted as a valid MongoDB JSON document payload for database insertion (`mongoimport` ready).
+                      Connected Connection String: <code style={{ color: 'var(--accent-secondary)', wordBreak: 'break-all' }}>mongodb+srv://prottoybiswas575358_db_user:***@cluster0.xmbpnba.mongodb.net/portfolio</code>
                     </p>
 
-                    <button onClick={exportMongoDBJSON} className="btn-primary" style={{ padding: '10px 22px' }}>
-                      Download MongoDB JSON Dump <Download size={18} />
-                    </button>
+                    <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                      <button onClick={exportMongoDBJSON} className="btn-primary" style={{ padding: '10px 22px' }}>
+                        Download MongoDB JSON Dump <Download size={18} />
+                      </button>
+
+                      <button onClick={seedMongoDBCluster} className="btn-secondary" style={{ padding: '10px 22px', color: 'var(--accent-secondary)' }}>
+                        Seed / Restore Sample Data to Cluster <Sparkles size={18} />
+                      </button>
+                    </div>
                   </div>
 
                   <div className="glass-panel" style={{ padding: '24px', borderRadius: 'var(--radius-md)' }}>

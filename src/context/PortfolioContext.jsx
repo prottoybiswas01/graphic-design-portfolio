@@ -3,6 +3,8 @@ import { initialData } from '../data/initialData';
 
 const PortfolioContext = createContext();
 
+const API_BASE = '/api/portfolio';
+
 export const PortfolioProvider = ({ children }) => {
   // Theme state
   const [theme, setTheme] = useState(() => {
@@ -14,24 +16,51 @@ export const PortfolioProvider = ({ children }) => {
     return localStorage.getItem('portfolio_admin_auth') === 'true';
   });
 
-  // Main Portfolio Data persistent state
+  // Main Portfolio Data state
   const [data, setData] = useState(() => {
-    const saved = localStorage.getItem('portfolio_data_v2');
+    const saved = localStorage.getItem('portfolio_data_v3');
     if (saved) {
       try {
         return JSON.parse(saved);
       } catch (e) {
-        console.error('Failed to parse saved portfolio data', e);
+        console.error('Failed to parse cached portfolio data', e);
       }
     }
     return initialData;
   });
 
-  // Toast notification state
+  const [dbConnected, setDbConnected] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [toast, setToast] = useState(null);
 
+  // Fetch initial data from MongoDB API
+  const fetchFromMongoDB = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(API_BASE);
+      if (res.ok) {
+        const json = await res.json();
+        if (json.profile && json.projects) {
+          setData(json);
+          setDbConnected(true);
+          localStorage.setItem('portfolio_data_v3', JSON.stringify(json));
+          console.log('Successfully synced with MongoDB Atlas');
+        }
+      }
+    } catch (err) {
+      console.warn('Could not connect to backend API, using local storage cache', err);
+      setDbConnected(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    localStorage.setItem('portfolio_data_v2', JSON.stringify(data));
+    fetchFromMongoDB();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('portfolio_data_v3', JSON.stringify(data));
   }, [data]);
 
   useEffect(() => {
@@ -52,7 +81,6 @@ export const PortfolioProvider = ({ children }) => {
 
   // Admin Auth functions
   const loginAdmin = (password) => {
-    // Secret password or default 'admin123' or 'admin'
     if (password === 'admin123' || password === 'admin' || password === '123456') {
       setIsAdmin(true);
       localStorage.setItem('portfolio_admin_auth', 'true');
@@ -70,86 +98,151 @@ export const PortfolioProvider = ({ children }) => {
     showToast('Logged out from Admin mode', 'info');
   };
 
-  // Profile / Hero update
-  const updateProfile = (updatedProfile) => {
+  // Profile Update -> MongoDB & LocalState
+  const updateProfile = async (updatedProfile) => {
+    // Optimistic UI update
     setData(prev => ({
       ...prev,
       profile: { ...prev.profile, ...updatedProfile }
     }));
-    showToast('Profile information updated successfully!');
+
+    try {
+      const res = await fetch(`${API_BASE}/profile`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedProfile)
+      });
+      if (res.ok) {
+        showToast('Profile updated in MongoDB Atlas & website live!');
+      } else {
+        showToast('Profile updated locally (Database sync warning)', 'info');
+      }
+    } catch (e) {
+      showToast('Profile saved locally.', 'info');
+    }
   };
 
-  // Project Management
-  const addProject = (newProject) => {
-    const projectWithId = {
-      ...newProject,
-      id: 'p_' + Date.now()
-    };
+  // Add Project -> MongoDB & LocalState
+  const addProject = async (newProject) => {
+    try {
+      const res = await fetch(`${API_BASE}/projects`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newProject)
+      });
+      if (res.ok) {
+        const json = await res.json();
+        setData(prev => ({
+          ...prev,
+          projects: [json.project, ...prev.projects]
+        }));
+        showToast('New project saved to MongoDB Atlas!');
+        return;
+      }
+    } catch (e) {
+      console.warn('API error, saving locally', e);
+    }
+
+    const fallbackProject = { ...newProject, id: 'p_' + Date.now() };
     setData(prev => ({
       ...prev,
-      projects: [projectWithId, ...prev.projects]
+      projects: [fallbackProject, ...prev.projects]
     }));
-    showToast('New project added to portfolio!');
+    showToast('Project added to portfolio!');
   };
 
-  const updateProject = (id, updatedFields) => {
+  // Update Project -> MongoDB & LocalState
+  const updateProject = async (id, updatedFields) => {
     setData(prev => ({
       ...prev,
       projects: prev.projects.map(p => (p.id === id ? { ...p, ...updatedFields } : p))
     }));
-    showToast('Project updated successfully!');
+
+    try {
+      await fetch(`${API_BASE}/projects/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedFields)
+      });
+      showToast('Project updated in MongoDB Atlas!');
+    } catch (e) {
+      showToast('Project updated locally.', 'info');
+    }
   };
 
-  const deleteProject = (id) => {
+  // Delete Project -> MongoDB & LocalState
+  const deleteProject = async (id) => {
     setData(prev => ({
       ...prev,
       projects: prev.projects.filter(p => p.id !== id)
     }));
-    showToast('Project deleted from portfolio.', 'info');
+
+    try {
+      await fetch(`${API_BASE}/projects/${id}`, { method: 'DELETE' });
+      showToast('Project removed from MongoDB Atlas.', 'info');
+    } catch (e) {
+      showToast('Project removed locally.', 'info');
+    }
   };
 
-  // Skill Management
-  const addSkill = (newSkill) => {
-    const skillWithId = {
-      ...newSkill,
-      id: 's_' + Date.now()
-    };
-    setData(prev => ({
-      ...prev,
-      skills: [...prev.skills, skillWithId]
-    }));
-    showToast('Skill added successfully!');
+  // Add Skill -> MongoDB & LocalState
+  const addSkill = async (newSkill) => {
+    try {
+      const res = await fetch(`${API_BASE}/skills`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newSkill)
+      });
+      if (res.ok) {
+        const json = await res.json();
+        setData(prev => ({ ...prev, skills: [...prev.skills, json.skill] }));
+        showToast('Skill saved to MongoDB Atlas!');
+        return;
+      }
+    } catch (e) {
+      console.warn('API error, saving skill locally', e);
+    }
+
+    const fallbackSkill = { ...newSkill, id: 's_' + Date.now() };
+    setData(prev => ({ ...prev, skills: [...prev.skills, fallbackSkill] }));
+    showToast('Skill added!');
   };
 
-  const updateSkill = (id, updatedFields) => {
-    setData(prev => ({
-      ...prev,
-      skills: prev.skills.map(s => (s.id === id ? { ...s, ...updatedFields } : s))
-    }));
-    showToast('Skill updated!');
+  // Delete Skill -> MongoDB & LocalState
+  const deleteSkill = async (id) => {
+    setData(prev => ({ ...prev, skills: prev.skills.filter(s => s.id !== id) }));
+    try {
+      await fetch(`${API_BASE}/skills/${id}`, { method: 'DELETE' });
+      showToast('Skill deleted.', 'info');
+    } catch (e) {
+      showToast('Skill deleted locally.', 'info');
+    }
   };
 
-  const deleteSkill = (id) => {
-    setData(prev => ({
-      ...prev,
-      skills: prev.skills.filter(s => s.id !== id)
-    }));
-    showToast('Skill removed.', 'info');
-  };
-
-  // Contact Messages
-  const sendMessage = (messageForm) => {
+  // Send Contact Message -> MongoDB & LocalState
+  const sendMessage = async (messageForm) => {
     const newMessage = {
       ...messageForm,
       id: 'm_' + Date.now(),
       date: new Date().toLocaleString(),
       read: false
     };
+
     setData(prev => ({
       ...prev,
       messages: [newMessage, ...prev.messages]
     }));
-    showToast('Thank you! Your message has been sent to the designer.', 'success');
+
+    try {
+      await fetch(`${API_BASE}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(messageForm)
+      });
+      showToast('Message sent to designer & saved in MongoDB Atlas!');
+    } catch (e) {
+      showToast('Message submitted successfully!');
+    }
   };
 
   const markMessageRead = (id) => {
@@ -159,18 +252,36 @@ export const PortfolioProvider = ({ children }) => {
     }));
   };
 
-  const deleteMessage = (id) => {
+  const deleteMessage = async (id) => {
     setData(prev => ({
       ...prev,
       messages: prev.messages.filter(m => m.id !== id)
     }));
+    try {
+      await fetch(`${API_BASE}/messages/${id}`, { method: 'DELETE' });
+    } catch (e) {}
     showToast('Message deleted', 'info');
+  };
+
+  // Seed database force trigger
+  const seedMongoDBCluster = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/seed`, { method: 'POST' });
+      if (res.ok) {
+        showToast('MongoDB Cluster successfully seeded with sample data!', 'success');
+        fetchFromMongoDB();
+      } else {
+        showToast('Seed request failed. Check server log.', 'error');
+      }
+    } catch (e) {
+      showToast('Could not reach backend API server.', 'error');
+    }
   };
 
   // Reset to default sample data
   const resetToDefault = () => {
     setData(initialData);
-    localStorage.removeItem('portfolio_data_v2');
+    localStorage.removeItem('portfolio_data_v3');
     showToast('Portfolio data reset to default sample data.', 'info');
   };
 
@@ -185,7 +296,7 @@ export const PortfolioProvider = ({ children }) => {
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
-    showToast('Downloaded MongoDB JSON data payload!', 'success');
+    showToast('Downloaded MongoDB JSON payload!', 'success');
   };
 
   return (
@@ -197,16 +308,18 @@ export const PortfolioProvider = ({ children }) => {
         loginAdmin,
         logoutAdmin,
         data,
+        dbConnected,
+        loading,
         updateProfile,
         addProject,
         updateProject,
         deleteProject,
         addSkill,
-        updateSkill,
         deleteSkill,
         sendMessage,
         markMessageRead,
         deleteMessage,
+        seedMongoDBCluster,
         resetToDefault,
         exportMongoDBJSON,
         toast,
