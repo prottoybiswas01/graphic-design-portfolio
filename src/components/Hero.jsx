@@ -9,7 +9,7 @@ export const Hero = () => {
     <section
       id="hero"
       style={{
-        paddingTop: '150px',
+        paddingTop: '140px',
         paddingBottom: '80px',
         position: 'relative',
         overflow: 'hidden',
@@ -21,18 +21,18 @@ export const Hero = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: '1.1fr 0.9fr',
-            gap: '50px',
+            gap: '40px',
             alignItems: 'center'
           }}
           className="hero-grid"
         >
           {/* Left Column */}
           <div>
-            <span style={{ fontSize: '1.15rem', color: '#FFFFFF', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
+            <span style={{ fontSize: '1.15rem', color: '#FFFFFF', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
               {profile.greeting || 'Hi I am'}
             </span>
 
-            <h2 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#FD6F00', marginBottom: '4px' }}>
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#FD6F00', marginBottom: '2px' }}>
               {profile.name}
             </h2>
 
@@ -50,7 +50,7 @@ export const Hero = () => {
             </h1>
 
             {/* Social Icons */}
-            <div style={{ display: 'flex', gap: '14px', marginBottom: '24px' }}>
+            <div style={{ display: 'flex', gap: '14px', marginBottom: '28px' }}>
               <a
                 href={profile.socials?.facebook || '#'}
                 target="_blank"
@@ -202,36 +202,54 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Circular Dark Avatar */}
-          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          {/* Right Column: 3D Circular Backdrop Pop-Out Avatar */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '480px', position: 'relative' }}>
+            {/* Ambient Backlight Glow */}
             <div
               style={{
-                position: 'relative',
-                width: '380px',
-                height: '380px',
+                position: 'absolute',
+                bottom: '10px',
+                width: '400px',
+                height: '400px',
                 borderRadius: '50%',
-                background: '#1E1E1E',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.25) 0%, rgba(253, 111, 0, 0) 70%)',
+                filter: 'blur(35px)',
+                zIndex: 0
               }}
-            >
-              <img
-                src={profile.avatar}
-                alt={profile.name}
-                style={{
-                  width: '340px',
-                  height: '340px',
-                  objectFit: 'cover',
-                  borderRadius: '50%',
-                  display: 'block'
-                }}
-                onError={(e) => {
-                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-                }}
-              />
-            </div>
+            />
+
+            {/* Dark Circular Backdrop Disc */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '0',
+                width: '370px',
+                height: '370px',
+                borderRadius: '50%',
+                background: '#1B1B1B',
+                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.6)',
+                zIndex: 1,
+                border: '1px solid rgba(255, 255, 255, 0.04)'
+              }}
+            />
+
+            {/* Cutout Photo popping out of top of circle */}
+            <img
+              src={profile.avatar}
+              alt={profile.name}
+              style={{
+                position: 'relative',
+                zIndex: 2,
+                maxHeight: '470px',
+                width: 'auto',
+                objectFit: 'contain',
+                display: 'block',
+                filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7))'
+              }}
+              onError={(e) => {
+                e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+              }}
+            />
           </div>
         </div>
       </div>
@@ -252,5 +270,6 @@ export const Hero = () => {
     </section>
   );
 };
+
 
 

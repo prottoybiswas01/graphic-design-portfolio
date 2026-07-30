@@ -58,36 +58,42 @@ export const About = () => {
           }}
           className="about-grid"
         >
-          {/* Left: Circular Dark Avatar Arc */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          {/* Left: 3D Circular Dark Avatar Arc */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '400px', position: 'relative' }}>
+            {/* Dark Circular Backdrop Disc */}
             <div
               style={{
-                width: '360px',
-                height: '360px',
+                position: 'absolute',
+                bottom: '0',
+                width: '340px',
+                height: '340px',
                 borderRadius: '50%',
-                background: '#1E1E1E',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+                background: '#1B1B1B',
+                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.6)',
+                zIndex: 1,
+                border: '1px solid rgba(255, 255, 255, 0.04)'
               }}
-            >
-              <img
-                src={profile.avatar}
-                alt={profile.name}
-                style={{
-                  width: '320px',
-                  height: '320px',
-                  objectFit: 'cover',
-                  borderRadius: '50%',
-                  display: 'block'
-                }}
-                onError={(e) => {
-                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-                }}
-              />
-            </div>
+            />
+
+            {/* Cutout Photo popping out of circle */}
+            <img
+              src={profile.avatar}
+              alt={profile.name}
+              style={{
+                position: 'relative',
+                zIndex: 2,
+                maxHeight: '430px',
+                width: 'auto',
+                objectFit: 'contain',
+                display: 'block',
+                filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7))'
+              }}
+              onError={(e) => {
+                e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+              }}
+            />
           </div>
+
 
           {/* Right: Bio Text & Download Button */}
           <div>
