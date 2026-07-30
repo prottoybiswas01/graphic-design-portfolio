@@ -41,15 +41,30 @@ export const Services = () => {
           {data.services.map((service, index) => (
             <div
               key={service.id || index}
-              className="animated-lighting-card animate-fade-up"
+              className="animate-fade-up"
               style={{
+                background: '#1E1E1E',
                 padding: '40px 32px',
+                borderRadius: '16px',
+                border: '1px solid rgba(255, 255, 255, 0.06)',
                 animationDelay: `${index * 0.1}s`,
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                gap: '16px',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#FD6F00';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(253, 111, 0, 0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
-
               <div>{getServiceIcon(service.icon)}</div>
 
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#FD6F00' }}>
@@ -62,6 +77,7 @@ export const Services = () => {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

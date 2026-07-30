@@ -62,7 +62,18 @@ export const About = () => {
     const strokeDashoffset = circumference - (skill.level / 100) * circumference;
 
     return (
-      <div key={skill.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+      <div
+        key={skill.id}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          transition: 'transform 0.3s ease'
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-6px)')}
+        onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+      >
         <div style={{ position: 'relative', width: '130px', height: '130px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {/* Circular SVG Ring */}
           <svg width="130" height="130" viewBox="0 0 130 130" style={{ transform: 'rotate(-90deg)', position: 'absolute', inset: 0 }}>
@@ -84,13 +95,15 @@ export const About = () => {
               strokeDasharray={circumference}
               strokeDashoffset={strokeDashoffset}
               strokeLinecap="round"
-              style={{ transition: 'stroke-dashoffset 1s ease-in-out' }}
+              style={{
+                transition: 'stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                filter: 'drop-shadow(0 0 6px rgba(253, 111, 0, 0.6))'
+              }}
             />
           </svg>
 
           {/* Inner White Round Badge */}
           <div
-            className="animated-skill-badge"
             style={{
               width: '64px',
               height: '64px',
@@ -99,9 +112,18 @@ export const About = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
+              boxShadow: '0 6px 16px rgba(0, 0, 0, 0.3), 0 0 12px rgba(253, 111, 0, 0.25)',
               zIndex: 2,
-              cursor: 'pointer'
+              cursor: 'pointer',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.12)';
+              e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.4), 0 0 20px rgba(253, 111, 0, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.3), 0 0 12px rgba(253, 111, 0, 0.25)';
             }}
           >
             {getToolLogo(skill.name)}
@@ -120,6 +142,7 @@ export const About = () => {
       </div>
     );
   };
+
 
   return (
     <section id="about" className="section-padding" style={{ background: 'var(--bg-main)' }}>
