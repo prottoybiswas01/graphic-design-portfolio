@@ -245,12 +245,10 @@ export const About = () => {
 
 
             <a
-              href="#about"
+              href="https://drive.google.com/file/d/1oLDTucuVrr2fwt3e5jAsGoFr6tpCfT51/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
               className="btn-primary"
-              onClick={(e) => {
-                e.preventDefault();
-                alert('Downloading CV...');
-              }}
               style={{
                 background: '#FD6F00',
                 color: '#ffffff',
@@ -265,6 +263,7 @@ export const About = () => {
             >
               <Download size={18} /> Download CV
             </a>
+
           </div>
         </div>
 
