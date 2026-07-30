@@ -202,7 +202,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Exact 3D Pop-Out Avatar (Body masked inside circle, Head popping out!) */}
+          {/* Right Column: Exact Archway (House/Dome shape: rounded top, flat bottom) Backdrop Avatar */}
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '480px', position: 'relative' }}>
             {/* Ambient Orange Glow */}
             <div
@@ -210,37 +210,44 @@ export const Hero = () => {
                 position: 'absolute',
                 bottom: '0',
                 width: '380px',
-                height: '380px',
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.25) 0%, rgba(253, 111, 0, 0) 70%)',
+                height: '420px',
+                borderTopLeftRadius: '190px',
+                borderTopRightRadius: '190px',
+                background: 'radial-gradient(circle at 50% 30%, rgba(253, 111, 0, 0.22) 0%, rgba(253, 111, 0, 0) 70%)',
                 filter: 'blur(30px)',
                 zIndex: 0
               }}
             />
 
-            {/* Dark Circle Background Disc */}
+            {/* Dark Archway (Dome/Doorway shape) Backdrop */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 width: '360px',
-                height: '360px',
-                borderRadius: '50%',
-                background: '#1B1B1B',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.6)',
+                height: '400px',
+                borderTopLeftRadius: '180px',
+                borderTopRightRadius: '180px',
+                borderBottomLeftRadius: '0px',
+                borderBottomRightRadius: '0px',
+                background: '#191919',
+                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.7)',
                 zIndex: 1,
-                border: '1px solid rgba(255, 255, 255, 0.04)'
+                border: '1px solid rgba(255, 255, 255, 0.05)'
               }}
             />
 
-            {/* Layer 1: Body masked INSIDE circle at bottom */}
+            {/* Layer 1: Body masked INSIDE archway shape at bottom */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 width: '360px',
-                height: '360px',
-                borderRadius: '50%',
+                height: '400px',
+                borderTopLeftRadius: '180px',
+                borderTopRightRadius: '180px',
+                borderBottomLeftRadius: '0px',
+                borderBottomRightRadius: '0px',
                 overflow: 'hidden',
                 zIndex: 2
               }}
@@ -263,7 +270,7 @@ export const Hero = () => {
               />
             </div>
 
-            {/* Layer 2: Head popping OUT of circle at top */}
+            {/* Layer 2: Head popping OUT above archway top */}
             <div
               style={{
                 position: 'absolute',
@@ -273,7 +280,7 @@ export const Hero = () => {
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
-                clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' // Only renders the top half (head)!
+                clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)'
               }}
             >
               <img
@@ -291,6 +298,7 @@ export const Hero = () => {
               />
             </div>
           </div>
+
         </div>
       </div>
 

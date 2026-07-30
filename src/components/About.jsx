@@ -143,31 +143,37 @@ export const About = () => {
           }}
           className="about-grid"
         >
-          {/* Left: 3D Pop-Out Avatar */}
+          {/* Left: Exact Archway (House/Dome shape: rounded top, flat bottom) Backdrop Avatar */}
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '440px', position: 'relative' }}>
-            {/* Dark Circle Background Disc */}
+            {/* Dark Archway (Dome/Doorway shape) Backdrop */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 width: '340px',
-                height: '340px',
-                borderRadius: '50%',
-                background: '#1B1B1B',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.6)',
+                height: '380px',
+                borderTopLeftRadius: '170px',
+                borderTopRightRadius: '170px',
+                borderBottomLeftRadius: '0px',
+                borderBottomRightRadius: '0px',
+                background: '#191919',
+                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.7)',
                 zIndex: 1,
-                border: '1px solid rgba(255, 255, 255, 0.04)'
+                border: '1px solid rgba(255, 255, 255, 0.05)'
               }}
             />
 
-            {/* Layer 1: Body masked INSIDE circle at bottom */}
+            {/* Layer 1: Body masked INSIDE archway shape at bottom */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 width: '340px',
-                height: '340px',
-                borderRadius: '50%',
+                height: '380px',
+                borderTopLeftRadius: '170px',
+                borderTopRightRadius: '170px',
+                borderBottomLeftRadius: '0px',
+                borderBottomRightRadius: '0px',
                 overflow: 'hidden',
                 zIndex: 2
               }}
@@ -180,7 +186,7 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '420px',
+                  height: '430px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -190,17 +196,17 @@ export const About = () => {
               />
             </div>
 
-            {/* Layer 2: Head popping OUT of circle at top */}
+            {/* Layer 2: Head popping OUT above archway top */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 width: '340px',
-                height: '420px',
+                height: '430px',
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
-                clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)'
+                clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)'
               }}
             >
               <img
@@ -211,13 +217,14 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '420px',
+                  height: '430px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
               />
             </div>
           </div>
+
 
           {/* Right: Bio Text & Download CV Button */}
           <div>
