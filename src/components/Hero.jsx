@@ -18,13 +18,13 @@ export const Hero = () => {
 
   useEffect(() => {
     const fullText = titles[titleIndex];
-    const typingSpeed = isDeleting ? 40 : 80;
+    const typingSpeed = isDeleting ? 65 : 125;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
         setCurrentText(fullText.substring(0, currentText.length + 1));
         if (currentText === fullText) {
-          setTimeout(() => setIsDeleting(true), 1800);
+          setTimeout(() => setIsDeleting(true), 3200);
         }
       } else {
         setCurrentText(fullText.substring(0, currentText.length - 1));
@@ -37,6 +37,7 @@ export const Hero = () => {
 
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, titleIndex]);
+
 
   return (
     <section
