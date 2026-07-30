@@ -15,20 +15,24 @@ function PortfolioApp() {
 
   useEffect(() => {
     const checkAdminRoute = () => {
-      const path = window.location.pathname;
-      const hash = window.location.hash;
-      if (path.includes('/admin') || hash === '#admin') {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      if (path === '/admin' || path === '/admin-panel' || path.includes('/admin') || hash === '#admin') {
         setIsAdminOpen(true);
       }
     };
     checkAdminRoute();
+    window.addEventListener('popstate', checkAdminRoute);
     window.addEventListener('hashchange', checkAdminRoute);
-    return () => window.removeEventListener('hashchange', checkAdminRoute);
+    return () => {
+      window.removeEventListener('popstate', checkAdminRoute);
+      window.removeEventListener('hashchange', checkAdminRoute);
+    };
   }, []);
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--bg-main)' }}>
-      <Navbar onOpenAdmin={() => setIsAdminOpen(true)} />
+      <Navbar />
       <main>
         <Hero />
         <Services />
@@ -37,11 +41,20 @@ function PortfolioApp() {
         <Contact />
       </main>
       <Footer />
-      <AdminPanel isOpen={isAdminOpen} onClose={() => setIsAdminOpen(false)} />
+      <AdminPanel
+        isOpen={isAdminOpen}
+        onClose={() => {
+          setIsAdminOpen(false);
+          if (window.location.pathname.includes('/admin')) {
+            window.history.pushState({}, '', '/');
+          }
+        }}
+      />
       <Toast />
     </div>
   );
 }
+
 
 export default function App() {
   return (

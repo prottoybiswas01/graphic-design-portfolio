@@ -142,22 +142,24 @@ export const Hero = () => {
               </a>
 
               <a
-                href="#about"
+                href="https://drive.google.com/file/d/1oLDTucuVrr2fwt3e5jAsGoFr6tpCfT51/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
                 className="btn-secondary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert('Downloading CV...');
-                }}
                 style={{
                   padding: '12px 28px',
                   borderRadius: '6px',
                   border: '1px solid rgba(255, 255, 255, 0.3)',
                   fontSize: '0.95rem',
-                  color: '#FFFFFF'
+                  color: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
                 }}
               >
                 Download CV
               </a>
+
             </div>
 
             {/* Stats Row Box */}
