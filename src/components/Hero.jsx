@@ -202,34 +202,30 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Exact Archway (House/Dome shape: rounded top, flat bottom) Backdrop Avatar */}
+          {/* Right Column: Large Round Circle Avatar Backdrop */}
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '480px', position: 'relative' }}>
-            {/* Ambient Orange Glow */}
+            {/* Ambient Orange Backlight Glow */}
             <div
               style={{
                 position: 'absolute',
-                bottom: '0',
-                width: '380px',
-                height: '420px',
-                borderTopLeftRadius: '190px',
-                borderTopRightRadius: '190px',
-                background: 'radial-gradient(circle at 50% 30%, rgba(253, 111, 0, 0.22) 0%, rgba(253, 111, 0, 0) 70%)',
-                filter: 'blur(30px)',
+                bottom: '10px',
+                width: '430px',
+                height: '430px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.25) 0%, rgba(253, 111, 0, 0) 70%)',
+                filter: 'blur(35px)',
                 zIndex: 0
               }}
             />
 
-            {/* Dark Archway (Dome/Doorway shape) Backdrop */}
+            {/* Large Dark Circle Disc */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '360px',
-                height: '400px',
-                borderTopLeftRadius: '180px',
-                borderTopRightRadius: '180px',
-                borderBottomLeftRadius: '0px',
-                borderBottomRightRadius: '0px',
+                width: '410px',
+                height: '410px',
+                borderRadius: '50%',
                 background: '#191919',
                 boxShadow: '0 20px 45px rgba(0, 0, 0, 0.7)',
                 zIndex: 1,
@@ -237,17 +233,14 @@ export const Hero = () => {
               }}
             />
 
-            {/* Layer 1: Body masked INSIDE archway shape at bottom */}
+            {/* Layer 1: Body masked INSIDE large circle at bottom */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '360px',
-                height: '400px',
-                borderTopLeftRadius: '180px',
-                borderTopRightRadius: '180px',
-                borderBottomLeftRadius: '0px',
-                borderBottomRightRadius: '0px',
+                width: '410px',
+                height: '410px',
+                borderRadius: '50%',
                 overflow: 'hidden',
                 zIndex: 2
               }}
@@ -260,7 +253,7 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '460px',
+                  height: '470px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -270,13 +263,13 @@ export const Hero = () => {
               />
             </div>
 
-            {/* Layer 2: Head popping OUT above archway top */}
+            {/* Layer 2: Head popping OUT above large circle top */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '360px',
-                height: '460px',
+                width: '410px',
+                height: '470px',
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
@@ -291,13 +284,14 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '460px',
+                  height: '470px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
               />
             </div>
           </div>
+
 
         </div>
       </div>
