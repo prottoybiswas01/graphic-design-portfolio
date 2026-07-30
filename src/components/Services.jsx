@@ -43,40 +43,43 @@ export const Services = () => {
               key={service.id || index}
               className="animate-fade-up"
               style={{
-                background: '#1E1E1E',
+                background: 'linear-gradient(135deg, rgba(253, 111, 0, 0.14) 0%, rgba(22, 22, 22, 0.98) 100%)',
                 padding: '40px 32px',
                 borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
+                border: '1px solid rgba(253, 111, 0, 0.18)',
                 animationDelay: `${index * 0.1}s`,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '16px',
-                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
                 cursor: 'pointer'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#FD6F00';
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(253, 111, 0, 0.28) 0%, rgba(28, 20, 15, 0.98) 100%)';
+                e.currentTarget.style.borderColor = 'rgba(253, 111, 0, 0.5)';
                 e.currentTarget.style.transform = 'translateY(-6px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(253, 111, 0, 0.2)';
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(253, 111, 0, 0.22)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(253, 111, 0, 0.14) 0%, rgba(22, 22, 22, 0.98) 100%)';
+                e.currentTarget.style.borderColor = 'rgba(253, 111, 0, 0.18)';
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
               <div>{getServiceIcon(service.icon)}</div>
 
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#FD6F00' }}>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#FD6F00' }}>
                 {service.title}
               </h3>
 
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.65 }}>
                 {service.description}
               </p>
             </div>
           ))}
         </div>
+
 
       </div>
     </section>
