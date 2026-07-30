@@ -37,8 +37,34 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding" style={{ background: 'var(--bg-main)' }}>
-      <div className="container" style={{ maxWidth: '800px' }}>
+    <section
+      id="contact"
+      className="section-padding"
+      style={{
+        background: 'var(--bg-main)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Ambient Lighting Aura Orb */}
+      <div
+        className="animate-float-orb"
+        style={{
+          position: 'absolute',
+          top: '20%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '600px',
+          height: '400px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(253, 111, 0, 0.18) 0%, transparent 70%)',
+          filter: 'blur(50px)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: '800px' }}>
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '12px' }}>

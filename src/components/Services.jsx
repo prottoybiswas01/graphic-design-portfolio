@@ -41,26 +41,15 @@ export const Services = () => {
           {data.services.map((service, index) => (
             <div
               key={service.id || index}
-              className="hover-lift-card animate-fade-up"
+              className="animated-lighting-card animate-fade-up"
               style={{
-                background: '#1E1E1E',
                 padding: '40px 32px',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
                 animationDelay: `${index * 0.1}s`,
                 display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(253, 111, 0, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';
-                e.currentTarget.style.transform = 'translateY(0)';
+                flexDirection: 'column'
               }}
             >
+
               <div>{getServiceIcon(service.icon)}</div>
 
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#FD6F00' }}>

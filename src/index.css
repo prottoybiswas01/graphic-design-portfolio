@@ -107,12 +107,23 @@ body {
   }
 }
 
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
+@keyframes spinAura {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
   }
   50% {
-    transform: translateY(-10px) scale(1.02);
+    transform: translate(20px, -20px) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
   }
 }
 
@@ -121,7 +132,7 @@ body {
     box-shadow: 0 0 15px rgba(253, 111, 0, 0.2);
   }
   50% {
-    box-shadow: 0 0 35px rgba(253, 111, 0, 0.5);
+    box-shadow: 0 0 35px rgba(253, 111, 0, 0.6);
   }
 }
 
@@ -135,9 +146,31 @@ body {
   100% { transform: translateX(200%); }
 }
 
-@keyframes rotateBadge {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes badgePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(253, 111, 0, 0.5);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(253, 111, 0, 0);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(253, 111, 0, 0);
+    transform: scale(1);
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Animation Utilities */
@@ -145,22 +178,57 @@ body {
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animate-float {
-  animation: floatSlow 5s ease-in-out infinite;
+.animate-spin-aura {
+  animation: spinAura 10s linear infinite;
+}
+
+.animate-float-orb {
+  animation: floatGlow 6s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 3s ease-in-out infinite;
 }
 
-/* Hover Interactive Lift Cards */
-.hover-lift-card {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
+/* Animated Lighting Card Border */
+.animated-lighting-card {
+  position: relative;
+  background: #1E1E1E;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  z-index: 1;
 }
-.hover-lift-card:hover {
-  transform: translateY(-8px) scale(1.02) !important;
-  box-shadow: 0 20px 40px rgba(253, 111, 0, 0.18), 0 10px 25px rgba(0,0,0,0.6) !important;
-  border-color: rgba(253, 111, 0, 0.4) !important;
+
+.animated-lighting-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(60deg, #FD6F00, #FF3E00, #00E5FF, #FD6F00);
+  background-size: 300% 300%;
+  animation: borderRotate 4s ease infinite;
+  z-index: -1;
+  opacity: 0.25;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.animated-lighting-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(253, 111, 0, 0.25);
+}
+
+.animated-lighting-card:hover::before {
+  opacity: 1;
+  filter: blur(4px);
+}
+
+/* Animated Skill Badge Pulse */
+.animated-skill-badge {
+  animation: badgePulse 3s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+.animated-skill-badge:hover {
+  transform: scale(1.15) rotate(5deg);
 }
 
 /* Button Shimmer Effect */
@@ -190,6 +258,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   color: var(--text-primary);
 }
+
 
 a {
   color: inherit;

@@ -90,6 +90,7 @@ export const About = () => {
 
           {/* Inner White Round Badge */}
           <div
+            className="animated-skill-badge"
             style={{
               width: '64px',
               height: '64px',
@@ -99,7 +100,8 @@ export const About = () => {
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
-              zIndex: 2
+              zIndex: 2,
+              cursor: 'pointer'
             }}
           >
             {getToolLogo(skill.name)}
@@ -143,8 +145,24 @@ export const About = () => {
           }}
           className="about-grid"
         >
-          {/* Left: Much Larger Portrait Photo with Archway Backdrop */}
+          {/* Left: Much Larger Portrait Photo with Archway Backdrop & Rotating Lighting Aura */}
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '560px', position: 'relative' }}>
+            {/* Spinning Lighting Aura Ring */}
+            <div
+              className="animate-spin-aura"
+              style={{
+                position: 'absolute',
+                bottom: '10px',
+                width: '460px',
+                height: '460px',
+                borderRadius: '50%',
+                background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
+                filter: 'blur(25px)',
+                opacity: 0.65,
+                zIndex: 0
+              }}
+            />
+
             {/* Dark Archway (Dome/Doorway shape) Backdrop */}
             <div
               style={{
@@ -159,9 +177,10 @@ export const About = () => {
                 background: '#181818',
                 boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
                 zIndex: 1,
-                border: '1px solid rgba(255, 255, 255, 0.05)'
+                border: '1px solid rgba(253, 111, 0, 0.2)'
               }}
             />
+
 
             {/* Layer 1: Body masked INSIDE archway shape at bottom */}
             <div

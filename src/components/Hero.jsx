@@ -242,15 +242,32 @@ export const Hero = () => {
 
           {/* Right Column: Much Larger Portrait Photo with Large Circle Backdrop */}
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '620px', position: 'relative' }}>
+            {/* Rotating Lighting Aura Ring */}
+            <div
+              className="animate-spin-aura"
+              style={{
+                position: 'absolute',
+                bottom: '0px',
+                width: '510px',
+                height: '510px',
+                borderRadius: '50%',
+                background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
+                filter: 'blur(20px)',
+                opacity: 0.7,
+                zIndex: 0
+              }}
+            />
+
             {/* Ambient Orange Backlight Glow */}
             <div
+              className="animate-float-orb"
               style={{
                 position: 'absolute',
                 bottom: '10px',
                 width: '520px',
                 height: '520px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.28) 0%, rgba(253, 111, 0, 0) 70%)',
+                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.35) 0%, rgba(253, 111, 0, 0) 70%)',
                 filter: 'blur(45px)',
                 zIndex: 0
               }}
@@ -267,9 +284,10 @@ export const Hero = () => {
                 background: '#181818',
                 boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
                 zIndex: 1,
-                border: '1px solid rgba(255, 255, 255, 0.05)'
+                border: '1px solid rgba(253, 111, 0, 0.2)'
               }}
             />
+
 
             {/* Layer 1: Body masked INSIDE circle at bottom */}
             <div
