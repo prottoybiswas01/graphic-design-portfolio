@@ -16,12 +16,13 @@ export const initialData = {
     clientSatisfaction: "100%",
     nsdaLevel: "Certified Graphic & UI/UX Designer",
     socials: {
-      behance: "https://behance.net/prottoybiswas",
-      dribbble: "https://dribbble.com/prottoybiswas",
-      linkedin: "https://linkedin.com/in/prottoybiswas",
-      facebook: "https://facebook.com/prottoybiswas",
+      facebook: "https://www.facebook.com/prottoy57",
+      linkedin: "https://www.linkedin.com/in/prottoy-kumar-biswas/",
+      behance: "https://www.behance.net/prottoybiswas",
+      email: "mailto:prottoybiswas575358@gmail.com",
       whatsapp: "https://wa.me/8801978167016"
     }
+
   },
   skills: [
     { id: "s1", name: "Figma", level: 100 },

@@ -86,12 +86,13 @@ export const Hero = () => {
             </h1>
 
 
-            {/* Social Icons */}
+            {/* Social Icons (Facebook, LinkedIn, Behance, Email) */}
             <div style={{ display: 'flex', gap: '14px', marginBottom: '28px' }}>
               <a
-                href={profile.socials?.facebook || '#'}
+                href={profile.socials?.facebook || 'https://www.facebook.com/prottoy57'}
                 target="_blank"
                 rel="noreferrer"
+                title="Facebook"
                 style={{
                   width: '38px',
                   height: '38px',
@@ -100,16 +101,26 @@ export const Hero = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#FFFFFF'
+                  color: '#FFFFFF',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#FD6F00';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
 
               <a
-                href={profile.socials?.twitter || '#'}
+                href={profile.socials?.linkedin || 'https://www.linkedin.com/in/prottoy-kumar-biswas/'}
                 target="_blank"
                 rel="noreferrer"
+                title="LinkedIn"
                 style={{
                   width: '38px',
                   height: '38px',
@@ -118,48 +129,76 @@ export const Hero = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#FFFFFF'
+                  color: '#FFFFFF',
+                  transition: 'all 0.25s ease'
                 }}
-              >
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
-              </a>
-
-              <a
-                href={profile.socials?.dribbble || '#'}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '50%',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF'
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#FD6F00';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
                 }}
-              >
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm9.841 10.741c-2.616-.505-5.228-.352-7.795.143 1.258-2.695 2.684-5.344 4.062-7.854 2.197 1.83 3.593 4.594 3.733 7.711zM16.59 2.176c-1.393 2.502-2.83 5.144-4.1 7.828-2.646-1.177-5.59-1.89-8.73-2.127C5.352 4.792 8.358 2.553 12 2.553c1.614 0 3.167.433 4.59 1.176zM2.553 12c0-.285.024-.564.053-.841 3.277.243 6.347.986 9.112 2.213-1.077 2.871-2.07 5.797-2.894 8.718-3.666-1.073-6.271-4.496-6.271-8.542zm8.01 9.421c.828-2.868 1.821-5.748 2.894-8.571 2.457-.464 4.966-.606 7.48-.124-.658 3.57-3.238 6.46-6.624 7.552-1.222.71-2.456 1.143-3.75 1.143z"/></svg>
-              </a>
-
-              <a
-                href={profile.socials?.linkedin || '#'}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '50%',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF'
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               </a>
+
+              <a
+                href={profile.socials?.behance || 'https://www.behance.net/prottoybiswas'}
+                target="_blank"
+                rel="noreferrer"
+                title="Behance"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#FD6F00';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.101 0-5-2.084-5-5.044 0-3.087 1.947-5.043 4.887-5.043 2.855 0 4.549 1.875 4.792 4.087h-2.617c-.104-.811-.84-1.89-2.175-1.89-1.399 0-2.235 1.055-2.235 2.812 0 1.637.771 2.836 2.247 2.836 1.488 0 2.102-1.026 2.245-1.758h2.582zm-15.726-2.906h-3.447v-2.316h3.292c.983 0 1.614.409 1.614 1.139 0 .762-.684 1.177-1.459 1.177zm-.382 3.864c1.157 0 1.956-.453 1.956-1.378 0-.913-.771-1.316-1.732-1.316h-3.289v2.694h3.065zm-5.618-8.958h6.541c2.148 0 3.738.995 3.738 2.658 0 1.085-.623 1.944-1.63 2.37 1.342.399 2.172 1.439 2.172 2.766 0 2.054-1.791 3.206-4.103 3.206h-6.718v-11z"/></svg>
+              </a>
+
+              <a
+                href={`mailto:${profile.email}`}
+                title="Send Email"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#FD6F00';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
             </div>
+
 
             {/* CTAs */}
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
