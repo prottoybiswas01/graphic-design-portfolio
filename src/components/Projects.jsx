@@ -64,25 +64,18 @@ export const Projects = () => {
             gap: '24px'
           }}
         >
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <div
-              key={project.id}
+              key={project.id || index}
+              className="hover-lift-card animate-fade-up"
+              onClick={() => setActiveModalProject(project)}
               style={{
                 background: '#1E1E1E',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 overflow: 'hidden',
-                border: '1px solid rgba(255, 255, 255, 0.04)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-              onClick={() => setActiveModalProject(project)}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-6px)';
-                e.currentTarget.style.borderColor = 'rgba(253, 111, 0, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';
+                animationDelay: `${index * 0.08}s`
               }}
             >
               {/* Image Preview Container */}

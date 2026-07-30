@@ -30,22 +30,24 @@ export const Services = () => {
           </p>
         </div>
 
-        {/* 6 Cards Grid */}
+        {/* Services Grid */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '24px'
+            gap: '30px'
           }}
         >
-          {data.services.map((service) => (
+          {data.services.map((service, index) => (
             <div
-              key={service.id}
+              key={service.id || index}
+              className="hover-lift-card animate-fade-up"
               style={{
                 background: '#1E1E1E',
-                padding: '36px 28px',
-                borderRadius: '12px',
-                border: '1px solid rgba(255, 255, 255, 0.04)',
+                padding: '40px 32px',
+                borderRadius: '16px',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                animationDelay: `${index * 0.1}s`,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '16px',
@@ -53,7 +55,6 @@ export const Services = () => {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(253, 111, 0, 0.4)';
-                e.currentTarget.style.transform = 'translateY(-4px)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';

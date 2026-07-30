@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
 
 export const Hero = () => {
   const { data } = usePortfolio();
   const { profile } = data;
+
+  const titles = [
+    'UI/UX Designer',
+    'Graphic Designer',
+    'Figma & Adobe Specialist',
+    'Brand Identity Creator'
+  ];
+
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const fullText = titles[titleIndex];
+    const typingSpeed = isDeleting ? 40 : 80;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setCurrentText(fullText.substring(0, currentText.length + 1));
+        if (currentText === fullText) {
+          setTimeout(() => setIsDeleting(true), 1800);
+        }
+      } else {
+        setCurrentText(fullText.substring(0, currentText.length - 1));
+        if (currentText === '') {
+          setIsDeleting(false);
+          setTitleIndex((prev) => (prev + 1) % titles.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, titleIndex]);
 
   return (
     <section
@@ -27,9 +60,9 @@ export const Hero = () => {
           className="hero-grid"
         >
           {/* Left Column */}
-          <div>
+          <div className="animate-fade-up">
             <span style={{ fontSize: '1.15rem', color: '#FFFFFF', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
-              {profile.greeting || 'Hi I am'}
+              {profile.greeting || "Hi! I'm"}
             </span>
 
             <h2 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#FD6F00', marginBottom: '2px' }}>
@@ -38,16 +71,19 @@ export const Hero = () => {
 
             <h1
               style={{
-                fontSize: 'clamp(2.8rem, 5.5vw, 4.5rem)',
+                fontSize: 'clamp(2.5rem, 5vw, 4.2rem)',
                 fontWeight: 900,
                 color: '#FD6F00',
-                lineHeight: 1.1,
+                lineHeight: 1.15,
                 marginBottom: '20px',
-                letterSpacing: '-1px'
+                letterSpacing: '-1px',
+                minHeight: '1.2em'
               }}
             >
-              {profile.title}
+              {currentText}
+              <span style={{ animation: 'blinkCursor 0.8s infinite', color: '#FFFFFF', marginLeft: '4px' }}>|</span>
             </h1>
+
 
             {/* Social Icons */}
             <div style={{ display: 'flex', gap: '14px', marginBottom: '28px' }}>
