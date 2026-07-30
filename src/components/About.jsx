@@ -58,9 +58,9 @@ export const About = () => {
           }}
           className="about-grid"
         >
-          {/* Left: 3D Circular Dark Avatar Arc */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '400px', position: 'relative' }}>
-            {/* Dark Circular Backdrop Disc */}
+          {/* Left: Exact 3D Pop-Out Avatar (Body masked inside circle, Head popping out!) */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '440px', position: 'relative' }}>
+            {/* Dark Circle Background Disc */}
             <div
               style={{
                 position: 'absolute',
@@ -75,24 +75,65 @@ export const About = () => {
               }}
             />
 
-            {/* Cutout Photo popping out of circle */}
-            <img
-              src={profile.avatar}
-              alt={profile.name}
+            {/* Layer 1: Body masked INSIDE circle at bottom */}
+            <div
               style={{
-                position: 'relative',
-                zIndex: 2,
-                maxHeight: '430px',
-                width: 'auto',
-                objectFit: 'contain',
-                display: 'block',
-                filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7))'
+                position: 'absolute',
+                bottom: '0',
+                width: '340px',
+                height: '340px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                zIndex: 2
               }}
-              onError={(e) => {
-                e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  height: '420px',
+                  maxWidth: 'none',
+                  objectFit: 'cover'
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+                }}
+              />
+            </div>
+
+            {/* Layer 2: Head popping OUT of circle at top */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '0',
+                width: '340px',
+                height: '420px',
+                overflow: 'hidden',
+                zIndex: 3,
+                pointerEvents: 'none',
+                clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)'
               }}
-            />
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  height: '420px',
+                  maxWidth: 'none',
+                  objectFit: 'cover'
+                }}
+              />
+            </div>
           </div>
+
 
 
           {/* Right: Bio Text & Download Button */}

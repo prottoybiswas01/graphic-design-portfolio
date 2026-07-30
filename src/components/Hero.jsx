@@ -202,29 +202,29 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: 3D Circular Backdrop Pop-Out Avatar */}
+          {/* Right Column: Exact 3D Pop-Out Avatar (Body masked inside circle, Head popping out!) */}
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '480px', position: 'relative' }}>
-            {/* Ambient Backlight Glow */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '10px',
-                width: '400px',
-                height: '400px',
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.25) 0%, rgba(253, 111, 0, 0) 70%)',
-                filter: 'blur(35px)',
-                zIndex: 0
-              }}
-            />
-
-            {/* Dark Circular Backdrop Disc */}
+            {/* Ambient Orange Glow */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '370px',
-                height: '370px',
+                width: '380px',
+                height: '380px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.25) 0%, rgba(253, 111, 0, 0) 70%)',
+                filter: 'blur(30px)',
+                zIndex: 0
+              }}
+            />
+
+            {/* Dark Circle Background Disc */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '0',
+                width: '360px',
+                height: '360px',
                 borderRadius: '50%',
                 background: '#1B1B1B',
                 boxShadow: '0 15px 40px rgba(0, 0, 0, 0.6)',
@@ -233,23 +233,63 @@ export const Hero = () => {
               }}
             />
 
-            {/* Cutout Photo popping out of top of circle */}
-            <img
-              src={profile.avatar}
-              alt={profile.name}
+            {/* Layer 1: Body masked INSIDE circle at bottom */}
+            <div
               style={{
-                position: 'relative',
-                zIndex: 2,
-                maxHeight: '470px',
-                width: 'auto',
-                objectFit: 'contain',
-                display: 'block',
-                filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7))'
+                position: 'absolute',
+                bottom: '0',
+                width: '360px',
+                height: '360px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                zIndex: 2
               }}
-              onError={(e) => {
-                e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  height: '460px',
+                  maxWidth: 'none',
+                  objectFit: 'cover'
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+                }}
+              />
+            </div>
+
+            {/* Layer 2: Head popping OUT of circle at top */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '0',
+                width: '360px',
+                height: '460px',
+                overflow: 'hidden',
+                zIndex: 3,
+                pointerEvents: 'none',
+                clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' // Only renders the top half (head)!
               }}
-            />
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  height: '460px',
+                  maxWidth: 'none',
+                  objectFit: 'cover'
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -270,6 +310,7 @@ export const Hero = () => {
     </section>
   );
 };
+
 
 
 
