@@ -1,251 +1,115 @@
 import React, { useState } from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
 import { ProjectModal } from './ProjectModal';
-import { Search, ExternalLink, Eye, FolderKanban } from 'lucide-react';
 
 export const Projects = () => {
   const { data } = usePortfolio();
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
   const [activeModalProject, setActiveModalProject] = useState(null);
 
-  const categories = [
-    'All',
-    'Branding',
-    'UI/UX Design',
-    'Banners & Social',
-    'Vector Art',
-    'Print & Marketing'
-  ];
+  const categories = ['All', 'UI/UX Design', 'Web Design', 'App Design', 'Branding'];
 
   const filteredProjects = data.projects.filter((project) => {
-    const matchesCategory =
-      selectedCategory === 'All' || project.category === selectedCategory;
-    const matchesSearch =
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.tags?.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSearch;
+    return selectedCategory === 'All' || project.category === selectedCategory;
   });
 
   return (
-    <section id="projects" className="section-padding" style={{ background: 'var(--bg-surface)' }}>
+    <section id="projects" className="section-padding" style={{ background: 'var(--bg-main)' }}>
       <div className="container">
-        {/* Section Title */}
-        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <div className="badge-pill" style={{ marginBottom: '12px' }}>
-            <FolderKanban size={14} /> Portfolio Showcase
-          </div>
-          <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', marginBottom: '16px' }}>
-            Featured Design <span className="gradient-text">Projects</span>
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '12px' }}>
+            Portfolio
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '620px', margin: '0 auto' }}>
-            A curated gallery of branding kits, ad campaign banners, vector illustrations, and Figma UI/UX designs crafted for NSD Level 3 freelancing assessment.
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '580px', margin: '0 auto', fontSize: '0.92rem' }}>
+            Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in.
           </p>
 
-          {/* Search & Category Filter Bar */}
+          {/* Category Filter Pills */}
           <div
             style={{
-              marginTop: '36px',
               display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-              alignItems: 'center'
+              gap: '12px',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              marginTop: '32px'
             }}
           >
-            {/* Search Input */}
-            <div
-              style={{
-                position: 'relative',
-                width: '100%',
-                maxWidth: '450px'
-              }}
-            >
-              <Search
-                size={18}
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
                 style={{
-                  position: 'absolute',
-                  left: '16px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  color: 'var(--text-muted)'
+                  padding: '10px 24px',
+                  borderRadius: '6px',
+                  fontSize: '0.88rem',
+                  fontWeight: 600,
+                  background: selectedCategory === cat ? '#FD6F00' : '#1E1E1E',
+                  color: selectedCategory === cat ? '#FFFFFF' : '#9E9E9E',
+                  border: `1px solid ${selectedCategory === cat ? '#FD6F00' : 'rgba(255, 255, 255, 0.05)'}`,
+                  transition: 'all 0.25s ease'
                 }}
-              />
-              <input
-                type="text"
-                placeholder="Search projects by title, tag, or software..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 16px 12px 46px',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid var(--border-color)',
-                  color: 'var(--text-primary)',
-                  fontSize: '0.92rem',
-                  outline: 'none'
-                }}
-              />
-            </div>
-
-            {/* Category Filter Pills */}
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  style={{
-                    padding: '8px 18px',
-                    borderRadius: 'var(--radius-full)',
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    background:
-                      selectedCategory === cat ? 'var(--gradient-primary)' : 'rgba(255, 255, 255, 0.05)',
-                    color: selectedCategory === cat ? '#ffffff' : 'var(--text-secondary)',
-                    border: `1px solid ${selectedCategory === cat ? 'transparent' : 'var(--border-color)'}`,
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Project Cards Grid */}
+        {/* 3x3 Project Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-            gap: '30px'
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '24px'
           }}
         >
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="glass-panel"
               style={{
-                borderRadius: 'var(--radius-lg)',
+                background: '#1E1E1E',
+                borderRadius: '12px',
                 overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
+                border: '1px solid rgba(255, 255, 255, 0.04)',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
               }}
               onClick={() => setActiveModalProject(project)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.borderColor = 'rgba(253, 111, 0, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';
+              }}
             >
               {/* Image Preview Container */}
-              <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', height: '260px', overflow: 'hidden' }}>
                 <img
                   src={project.image}
                   alt={project.title}
                   style={{
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.5s ease'
+                    objectFit: 'cover'
                   }}
-                  onMouseEnter={(e) => (e.target.style.transform = 'scale(1.08)')}
-                  onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
                 />
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '14px',
-                    left: '14px',
-                    background: 'rgba(17, 24, 39, 0.8)',
-                    backdropFilter: 'blur(8px)',
-                    padding: '4px 12px',
-                    borderRadius: 'var(--radius-full)',
-                    fontSize: '0.78rem',
-                    fontWeight: 600,
-                    color: 'var(--accent-secondary)'
-                  }}
-                >
-                  {project.category}
-                </div>
               </div>
 
-              {/* Card Body */}
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <h3
-                  style={{
-                    fontSize: '1.2rem',
-                    marginBottom: '10px',
-                    lineHeight: 1.35
-                  }}
-                >
+              {/* Card Title & Category */}
+              <div style={{ padding: '20px' }}>
+                <div style={{ fontSize: '0.8rem', color: '#FD6F00', fontWeight: 600, marginBottom: '4px' }}>
+                  {project.category}
+                </div>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#FFFFFF' }}>
                   {project.title}
                 </h3>
-
-                <p
-                  style={{
-                    fontSize: '0.88rem',
-                    color: 'var(--text-secondary)',
-                    marginBottom: '20px',
-                    lineHeight: 1.6,
-                    display: '-webkit-box',
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden'
-                  }}
-                >
-                  {project.description}
-                </p>
-
-                {/* Footer Tag Badges & View CTA */}
-                <div
-                  style={{
-                    marginTop: 'auto',
-                    paddingTop: '16px',
-                    borderTop: '1px solid var(--border-color)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                    {project.tags?.slice(0, 2).map((tag, i) => (
-                      <span
-                        key={i}
-                        style={{
-                          fontSize: '0.75rem',
-                          color: 'var(--text-muted)',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          padding: '3px 8px',
-                          borderRadius: '4px'
-                        }}
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <span
-                    style={{
-                      fontSize: '0.85rem',
-                      fontWeight: 600,
-                      color: 'var(--accent-primary)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px'
-                    }}
-                  >
-                    View Details <Eye size={15} />
-                  </span>
-                </div>
               </div>
             </div>
           ))}
         </div>
-
-        {filteredProjects.length === 0 && (
-          <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--text-muted)' }}>
-            No projects found matching your search. Try adjusting the category or search query.
-          </div>
-        )}
       </div>
 
       {/* Project Detail Modal */}
@@ -253,3 +117,4 @@ export const Projects = () => {
     </section>
   );
 };
+

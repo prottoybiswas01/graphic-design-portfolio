@@ -1,6 +1,5 @@
 import React from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
-import { Sparkles, ArrowRight, Download, Award, CheckCircle, ExternalLink, Star } from 'lucide-react';
 
 export const Hero = () => {
   const { data } = usePortfolio();
@@ -10,242 +9,228 @@ export const Hero = () => {
     <section
       id="hero"
       style={{
-        paddingTop: '160px',
-        paddingBottom: '90px',
+        paddingTop: '150px',
+        paddingBottom: '80px',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        background: 'var(--bg-main)'
       }}
     >
-      {/* Background Glow Circles */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '10%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '600px',
-          height: '600px',
-          background: 'var(--gradient-glow)',
-          pointerEvents: 'none',
-          zIndex: 0
-        }}
-      />
-
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container">
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.2fr 0.8fr',
-            gap: '40px',
+            gridTemplateColumns: '1.1fr 0.9fr',
+            gap: '50px',
             alignItems: 'center'
           }}
           className="hero-grid"
         >
-          {/* Left Column: Intro & Text */}
-          <div className="animate-slide-left">
-            {/* Certification Badge Pill */}
-            <div className="badge-pill" style={{ marginBottom: '20px' }}>
-              <Award size={16} color="var(--accent-primary)" />
-              <span>{profile.nsdaLevel} Assessment Portfolio</span>
-            </div>
+          {/* Left Column */}
+          <div>
+            <span style={{ fontSize: '1.15rem', color: '#FFFFFF', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
+              {profile.greeting || 'Hi I am'}
+            </span>
+
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#FD6F00', marginBottom: '4px' }}>
+              {profile.name}
+            </h2>
 
             <h1
               style={{
-                fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
-                fontWeight: 800,
-                letterSpacing: '-1.5px',
-                lineHeight: 1.15,
-                marginBottom: '20px'
+                fontSize: 'clamp(2.8rem, 5.5vw, 4.5rem)',
+                fontWeight: 900,
+                color: '#FD6F00',
+                lineHeight: 1.1,
+                marginBottom: '20px',
+                letterSpacing: '-1px'
               }}
             >
-              Creative Graphic Designer & <br />
-              <span className="gradient-text">{profile.title.split('&')[1] || 'UI/UX Specialist'}</span>
+              {profile.title}
             </h1>
 
-            <p
-              style={{
-                fontSize: '1.1rem',
-                color: 'var(--text-secondary)',
-                marginBottom: '32px',
-                maxWidth: '580px',
-                lineHeight: 1.7
-              }}
-            >
-              {profile.heroBio}
-            </p>
-
-            {/* CTAs */}
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '45px' }}>
-              <a href="#projects" className="btn-primary">
-                Explore Works <ArrowRight size={18} />
-              </a>
-              <a href="#contact" className="btn-secondary">
-                Hire Me
-              </a>
+            {/* Social Icons */}
+            <div style={{ display: 'flex', gap: '14px', marginBottom: '24px' }}>
               <a
-                href="#about"
-                className="btn-outline"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert('Downloading Level 3 Certified Resume (CV)...');
+                href={profile.socials?.facebook || '#'}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF'
                 }}
               >
-                <Download size={16} /> CV
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+
+              <a
+                href={profile.socials?.twitter || '#'}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF'
+                }}
+              >
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
+              </a>
+
+              <a
+                href={profile.socials?.dribbble || '#'}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF'
+                }}
+              >
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm9.841 10.741c-2.616-.505-5.228-.352-7.795.143 1.258-2.695 2.684-5.344 4.062-7.854 2.197 1.83 3.593 4.594 3.733 7.711zM16.59 2.176c-1.393 2.502-2.83 5.144-4.1 7.828-2.646-1.177-5.59-1.89-8.73-2.127C5.352 4.792 8.358 2.553 12 2.553c1.614 0 3.167.433 4.59 1.176zM2.553 12c0-.285.024-.564.053-.841 3.277.243 6.347.986 9.112 2.213-1.077 2.871-2.07 5.797-2.894 8.718-3.666-1.073-6.271-4.496-6.271-8.542zm8.01 9.421c.828-2.868 1.821-5.748 2.894-8.571 2.457-.464 4.966-.606 7.48-.124-.658 3.57-3.238 6.46-6.624 7.552-1.222.71-2.456 1.143-3.75 1.143z"/></svg>
+              </a>
+
+              <a
+                href={profile.socials?.linkedin || '#'}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF'
+                }}
+              >
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               </a>
             </div>
 
-            {/* Stats Row */}
+            {/* CTAs */}
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
+              <a
+                href="#contact"
+                className="btn-primary"
+                style={{
+                  background: '#FD6F00',
+                  color: '#ffffff',
+                  padding: '12px 32px',
+                  borderRadius: '6px',
+                  fontWeight: 600,
+                  fontSize: '0.95rem'
+                }}
+              >
+                Hire Me
+              </a>
+
+              <a
+                href="#about"
+                className="btn-secondary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  alert('Downloading CV...');
+                }}
+                style={{
+                  padding: '12px 28px',
+                  borderRadius: '6px',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  fontSize: '0.95rem',
+                  color: '#FFFFFF'
+                }}
+              >
+                Download CV
+              </a>
+            </div>
+
+            {/* Stats Row Box */}
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: '20px',
-                paddingTop: '24px',
-                borderTop: '1px solid var(--border-color)'
+                background: '#1E1E1E',
+                padding: '20px 24px',
+                borderRadius: '12px',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                maxWidth: '460px'
               }}
             >
               <div>
-                <div style={{ fontSize: '1.9rem', fontWeight: 800, color: 'var(--accent-primary)' }}>
-                  {profile.completedProjects}+
-                </div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Projects Completed</div>
-              </div>
-
-              <div>
-                <div style={{ fontSize: '1.9rem', fontWeight: 800, color: 'var(--accent-secondary)' }}>
-                  {profile.clientSatisfaction}
-                </div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Satisfied Clients</div>
-              </div>
-
-              <div>
-                <div style={{ fontSize: '1.9rem', fontWeight: 800, color: 'var(--accent-rose)' }}>
+                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FD6F00', lineHeight: 1 }}>
                   {profile.experienceYears}
                 </div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Years Experience</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
+                  Experience
+                </div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FD6F00', lineHeight: 1 }}>
+                  {profile.completedProjects}+
+                </div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
+                  Projects Done
+                </div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FD6F00', lineHeight: 1 }}>
+                  {profile.clientSatisfaction}
+                </div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
+                  Happy Clients
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Avatar Portrait Showcase */}
-          <div className="animate-slide-right" style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+          {/* Right Column: Circular Dark Avatar */}
+          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
             <div
               style={{
                 position: 'relative',
-                width: '100%',
-                maxWidth: '380px'
+                width: '380px',
+                height: '380px',
+                borderRadius: '50%',
+                background: '#1E1E1E',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
               }}
             >
-              {/* Outer Glowing Ring */}
-              <div
+              <img
+                src={profile.avatar}
+                alt={profile.name}
                 style={{
-                  position: 'absolute',
-                  inset: '-10px',
-                  borderRadius: '30px',
-                  background: 'var(--gradient-primary)',
-                  opacity: 0.4,
-                  filter: 'blur(20px)',
-                  animation: 'pulseGlow 4s infinite ease-in-out'
+                  width: '340px',
+                  height: '340px',
+                  objectFit: 'cover',
+                  borderRadius: '50%',
+                  display: 'block'
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
                 }}
               />
-
-              {/* Avatar Frame Card */}
-              <div
-                className="glass-panel"
-                style={{
-                  position: 'relative',
-                  overflow: 'hidden',
-                  borderRadius: '28px',
-                  padding: '12px',
-                  background: 'var(--bg-surface)'
-                }}
-              >
-                <img
-                  src={profile.avatar}
-                  alt={profile.name}
-                  style={{
-                    width: '100%',
-                    height: '420px',
-                    objectFit: 'cover',
-                    borderRadius: '20px',
-                    display: 'block'
-                  }}
-                  onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-                  }}
-                />
-
-                {/* Overlay Badge */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: '24px',
-                    left: '24px',
-                    right: '24px',
-                    padding: '14px 18px',
-                    background: 'rgba(17, 24, 39, 0.85)',
-                    backdropFilter: 'blur(12px)',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid var(--border-highlight)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <div>
-                    <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff' }}>{profile.name}</div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--accent-secondary)' }}>Level 3 Certified Freelancer</div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '2px', color: '#F59E0B' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={14} fill="#F59E0B" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Tool Badge 1: Photoshop */}
-              <div
-                className="glass-panel animate-float"
-                style={{
-                  position: 'absolute',
-                  top: '-15px',
-                  left: '-20px',
-                  padding: '10px 16px',
-                  borderRadius: 'var(--radius-md)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontSize: '0.85rem',
-                  fontWeight: 700,
-                  color: '#31A8FF',
-                  boxShadow: 'var(--shadow-md)'
-                }}
-              >
-                <span>Ps</span> Photoshop Pro
-              </div>
-
-              {/* Floating Tool Badge 2: Illustrator */}
-              <div
-                className="glass-panel animate-float"
-                style={{
-                  position: 'absolute',
-                  bottom: '70px',
-                  right: '-25px',
-                  padding: '10px 16px',
-                  borderRadius: 'var(--radius-md)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontSize: '0.85rem',
-                  fontWeight: 700,
-                  color: '#FF9A00',
-                  animationDelay: '1.5s',
-                  boxShadow: 'var(--shadow-md)'
-                }}
-              >
-                <span>Ai</span> Vector Specialist
-              </div>
             </div>
           </div>
         </div>
@@ -259,7 +244,7 @@ export const Hero = () => {
           }
           .hero-grid > div:first-child {
             display: flex;
-            flexDirection: column;
+            flex-direction: column;
             align-items: center;
           }
         }
@@ -267,3 +252,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+

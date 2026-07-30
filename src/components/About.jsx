@@ -1,46 +1,49 @@
 import React from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
-import { Award, CheckCircle2, FileCheck, Layers, Cpu, Compass } from 'lucide-react';
 
 export const About = () => {
   const { data } = usePortfolio();
+  const { profile, skills } = data;
 
-  const workflowSteps = [
-    {
-      num: '01',
-      title: 'Asset & Layout Planning',
-      desc: 'Analyzing client requirements, target demographic, color psychology, and wireframe grid structures.'
-    },
-    {
-      num: '02',
-      title: 'Vector & Raster Execution',
-      desc: 'Creating crisp vector logos in Illustrator, photo manipulations in Photoshop, and UI design components in Figma.'
-    },
-    {
-      num: '03',
-      title: 'NSD Standard Compliance',
-      desc: 'Ensuring resolution, typography scale, spot colors, bleed lines, and responsive layout standards for Level 3 certification.'
-    },
-    {
-      num: '04',
-      title: 'Delivery & Asset Handoff',
-      desc: 'Exporting print-ready CMYK PDFs, vector SVG/EPS assets, web-ready PNGs, and organized PSD/Figma source files.'
-    }
-  ];
+  // Helper for Circular Gauge SVG Calculation
+  const renderCircleGauge = (percent, label) => {
+    const radius = 40;
+    const circumference = 2 * Math.PI * radius;
+    const strokeDashoffset = circumference - (percent / 100) * circumference;
+
+    return (
+      <div key={label} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="circle-gauge">
+          <svg viewBox="0 0 100 100">
+            <circle className="circle-bg" cx="50" cy="50" r={radius} />
+            <circle
+              className="circle-progress"
+              cx="50"
+              cy="50"
+              r={radius}
+              strokeDasharray={circumference}
+              strokeDashoffset={strokeDashoffset}
+            />
+          </svg>
+          <div className="circle-value">{percent}%</div>
+        </div>
+        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#FFFFFF', marginTop: '10px' }}>
+          {label}
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <section id="about" className="section-padding" style={{ background: 'var(--bg-surface)' }}>
+    <section id="about" className="section-padding" style={{ background: 'var(--bg-main)' }}>
       <div className="container">
         {/* Section Header */}
-        <div style={{ textTransform: 'center', textAlign: 'center', marginBottom: '60px' }}>
-          <div className="badge-pill" style={{ marginBottom: '12px' }}>
-            <Award size={14} /> National Skill Development (NSD) Certified
-          </div>
-          <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', marginBottom: '16px' }}>
-            About My <span className="gradient-text">Design Practice</span>
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '12px' }}>
+            About Me
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '650px', margin: '0 auto', fontSize: '1.05rem' }}>
-            Dedicated Graphic Designer with Level 3 NSDA Certification, transforming brand ideas into visually captivating, production-ready designs.
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '580px', margin: '0 auto', fontSize: '0.92rem' }}>
+            Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in.
           </p>
         </div>
 
@@ -48,94 +51,90 @@ export const About = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '40px',
+            gridTemplateColumns: '0.9fr 1.1fr',
+            gap: '50px',
             alignItems: 'center',
             marginBottom: '70px'
           }}
           className="about-grid"
         >
-          {/* Left: Certificate & Highlights Card */}
-          <div className="glass-panel" style={{ padding: '36px', borderRadius: 'var(--radius-lg)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-              <div
+          {/* Left: Circular Dark Avatar Arc */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div
+              style={{
+                width: '360px',
+                height: '360px',
+                borderRadius: '50%',
+                background: '#1E1E1E',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)'
+              }}
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
                 style={{
-                  width: '54px',
-                  height: '54px',
-                  borderRadius: '16px',
-                  background: 'rgba(139, 92, 246, 0.15)',
-                  color: 'var(--accent-primary)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  width: '320px',
+                  height: '320px',
+                  objectFit: 'cover',
+                  borderRadius: '50%',
+                  display: 'block'
                 }}
-              >
-                <Award size={28} />
-              </div>
-              <div>
-                <h3 style={{ fontSize: '1.3rem' }}>NSDA Level 3 Certification</h3>
-                <div style={{ color: 'var(--accent-secondary)', fontSize: '0.88rem', fontWeight: 600 }}>
-                  Graphic Design for Freelancing (Level 3)
-                </div>
-              </div>
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+                }}
+              />
             </div>
+          </div>
 
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '24px' }}>
-              This portfolio represents the comprehensive practical assessment for Graphic Design for Freelancing Level 3. It demonstrates industry-standard competencies in digital branding, advertising asset creation, UI wireframing, color management, and client freelancing workflow.
+          {/* Right: Bio Text & Download Button */}
+          <div>
+            <p
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: '0.95rem',
+                lineHeight: 1.8,
+                marginBottom: '32px'
+              }}
+            >
+              {profile.aboutBio ||
+                "A software engineer, also known as a computer programmer, writes the code that allows computer applications and software programs to function smoothly. They analyze users' needs, design and test software, and modify existing applications to ensure peak efficiency. Software engineers work across various industries creating tudo from operating systems to computer games."}
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {[
-                'Expertise in Photoshop, Illustrator, Figma & InDesign',
-                'NSD Level 3 Standard Color Management & Typography',
-                'Ad Banner Planning & Social Media Campaign Design',
-                'High-Fidelity UI/UX Prototyping & Component Systems',
-                '100% Client Satisfaction & Production-Ready Asset Delivery'
-              ].map((item, idx) => (
-                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <CheckCircle2 size={18} color="var(--accent-emerald)" />
-                  <span style={{ fontSize: '0.95rem', fontWeight: 500, color: 'var(--text-primary)' }}>{item}</span>
-                </div>
-              ))}
-            </div>
+            <a
+              href="#about"
+              className="btn-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Downloading CV...');
+              }}
+              style={{
+                background: '#FD6F00',
+                color: '#ffffff',
+                padding: '12px 32px',
+                borderRadius: '6px',
+                fontWeight: 600,
+                fontSize: '0.95rem'
+              }}
+            >
+              Download CV
+            </a>
           </div>
+        </div>
 
-          {/* Right: Workflow Grid */}
-          <div>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <Layers color="var(--accent-secondary)" size={22} /> Creative Workflow & Methodology
-            </h3>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              {workflowSteps.map((step) => (
-                <div
-                  key={step.num}
-                  className="glass-panel"
-                  style={{
-                    padding: '20px 24px',
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '20px'
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: '1.4rem',
-                      fontWeight: 800,
-                      color: 'var(--accent-primary)',
-                      fontFamily: 'var(--font-mono)'
-                    }}
-                  >
-                    {step.num}
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', marginBottom: '4px' }}>{step.title}</h4>
-                    <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Circular Skill Gauges Bar */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            flexWrap: 'wrap',
+            gap: '30px',
+            paddingTop: '20px'
+          }}
+        >
+          {skills.map((skill) => renderCircleGauge(skill.level, skill.name))}
         </div>
       </div>
 
@@ -143,9 +142,11 @@ export const About = () => {
         @media (max-width: 900px) {
           .about-grid {
             grid-template-columns: 1fr !important;
+            text-align: center;
           }
         }
       `}</style>
     </section>
   );
 };
+

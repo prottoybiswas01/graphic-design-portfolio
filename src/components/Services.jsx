@@ -1,114 +1,74 @@
 import React from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
-import { Award, Layout, Printer, Sparkles, Check, ArrowRight } from 'lucide-react';
+import { Smartphone, Globe, Layout, Image, Award, Megaphone } from 'lucide-react';
 
 export const Services = () => {
   const { data } = usePortfolio();
 
   const getServiceIcon = (iconName) => {
     switch (iconName) {
-      case 'Award': return <Award size={26} color="var(--accent-primary)" />;
-      case 'Layout': return <Layout size={26} color="var(--accent-secondary)" />;
-      case 'Printer': return <Printer size={26} color="var(--accent-rose)" />;
-      default: return <Sparkles size={26} color="var(--accent-amber)" />;
+      case 'Smartphone': return <Smartphone size={32} color="#FD6F00" />;
+      case 'Globe': return <Globe size={32} color="#FD6F00" />;
+      case 'Layout': return <Layout size={32} color="#FD6F00" />;
+      case 'Image': return <Image size={32} color="#FD6F00" />;
+      case 'Award': return <Award size={32} color="#FD6F00" />;
+      case 'Megaphone': return <Megaphone size={32} color="#FD6F00" />;
+      default: return <Smartphone size={32} color="#FD6F00" />;
     }
   };
 
   return (
-    <section id="services" className="section-padding">
+    <section id="services" className="section-padding" style={{ background: 'var(--bg-main)' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <div className="badge-pill" style={{ marginBottom: '12px' }}>
-            <Sparkles size={14} /> Professional Offerings
-          </div>
-          <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', marginBottom: '16px' }}>
-            Graphic & UI <span className="gradient-text">Design Services</span>
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '12px' }}>
+            Services
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '620px', margin: '0 auto' }}>
-            Tailored design solutions designed to help startups, agencies, and businesses build strong visual identities and digital products.
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '580px', margin: '0 auto', fontSize: '0.92rem' }}>
+            Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in.
           </p>
         </div>
 
+        {/* 6 Cards Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-            gap: '30px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '24px'
           }}
         >
           {data.services.map((service) => (
             <div
               key={service.id}
-              className="glass-panel"
               style={{
-                padding: '32px 28px',
-                borderRadius: 'var(--radius-lg)',
+                background: '#1E1E1E',
+                padding: '36px 28px',
+                borderRadius: '12px',
+                border: '1px solid rgba(255, 255, 255, 0.04)',
                 display: 'flex',
                 flexDirection: 'column',
-                position: 'relative'
+                gap: '16px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(253, 111, 0, 0.4)';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';
+                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-                <div
-                  style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '16px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  {getServiceIcon(service.icon)}
-                </div>
+              <div>{getServiceIcon(service.icon)}</div>
 
-                <span
-                  style={{
-                    fontSize: '0.88rem',
-                    fontWeight: 700,
-                    color: 'var(--accent-emerald)',
-                    background: 'rgba(16, 185, 129, 0.1)',
-                    padding: '4px 12px',
-                    borderRadius: 'var(--radius-full)'
-                  }}
-                >
-                  {service.price}
-                </span>
-              </div>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#FD6F00' }}>
+                {service.title}
+              </h3>
 
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>{service.title}</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '24px', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
                 {service.description}
               </p>
-
-              <div style={{ marginTop: 'auto', paddingTop: '20px', borderTop: '1px solid var(--border-color)' }}>
-                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  What's Included:
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
-                  {service.deliverables?.map((item, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem' }}>
-                      <Check size={14} color="var(--accent-primary)" />
-                      <span style={{ color: 'var(--text-primary)' }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href="#contact"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    fontSize: '0.88rem',
-                    fontWeight: 700,
-                    color: 'var(--accent-primary)'
-                  }}
-                >
-                  Order Service <ArrowRight size={15} />
-                </a>
-              </div>
             </div>
           ))}
         </div>
@@ -116,3 +76,4 @@ export const Services = () => {
     </section>
   );
 };
+
