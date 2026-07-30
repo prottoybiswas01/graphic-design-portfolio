@@ -41,7 +41,7 @@ export const Navbar = ({ onOpenAdmin }) => {
         <a href="#hero" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <img
             src="/logo.png"
-            alt="kodlv.uk"
+            alt="kodl.uk"
             style={{
               height: '52px',
               width: 'auto',
@@ -49,6 +49,7 @@ export const Navbar = ({ onOpenAdmin }) => {
               display: 'block'
             }}
           />
+
         </a>
 
 
