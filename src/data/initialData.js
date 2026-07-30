@@ -1,20 +1,20 @@
 export const initialData = {
   profile: {
     name: "Prottoy Kumar Biswas",
-    title: "UX/UI Designer & Web Developer",
+    title: "UI/UX Designer & Graphic Designer",
     greeting: "Hi! I'm",
-    subtitle: "UX/UI Designer & Web Developer crafting modern digital experiences",
-    heroBio: "I specialize in website design, app design, landing pages, and complete UI/UX solutions built with clarity, creativity, and purpose.",
-    aboutBio: "Hi! I'm Prottoy Kumar Biswas, a UI/UX Designer and Web Developer who crafts modern, user-focused digital experiences. I specialize in website design, app design, landing pages, and complete UI/UX solutions built with clarity, creativity, and purpose. On the development side, I work with Django, React, HTML, CSS, and JavaScript, allowing me to design and build fully functional, high-performance websites. My workflow aligns user needs with business goals to create products that are visually appealing, intuitive, and result-driven.",
+    subtitle: "UI/UX Designer & Graphic Designer specializing in Figma, Adobe XD, Photoshop, Illustrator & Premiere Pro",
+    heroBio: "I specialize in Figma, Adobe XD, Photoshop, Illustrator, and Premiere Pro to create modern visual designs, brand identity, app UI/UX, and creative graphics.",
+    aboutBio: "Hi! I'm Prottoy Kumar Biswas, a dedicated UI/UX Designer & Graphic Designer based in Jhenaidah. I specialize in crafting modern, user-focused digital experiences, brand identities, web & app interfaces, and promotional graphic designs using Figma, Adobe XD, Adobe Photoshop, Adobe Illustrator, and Adobe Premiere Pro. My workflow aligns client vision with creative design principles to build visually stunning, intuitive, and high-impact design solutions.",
     email: "prottoybiswas575358@gmail.com",
     phone: "01978167016",
-    location: "Mirpur-10, Dhaka",
-    availability: "Available for Freelance & Full-time Projects",
+    location: "Jhenaidah Sadar, Jhenaidah",
+    availability: "Available for Freelance & Remote Graphic Design Projects",
     avatar: "/profile.png",
     experienceYears: "1+",
     completedProjects: 25,
     clientSatisfaction: "100%",
-    nsdaLevel: "Certified UX/UI Designer",
+    nsdaLevel: "Certified Graphic & UI/UX Designer",
     socials: {
       behance: "https://behance.net/prottoybiswas",
       dribbble: "https://dribbble.com/prottoybiswas",
@@ -33,11 +33,11 @@ export const initialData = {
   projects: [
     {
       id: "p1",
-      title: "AirCommerce Web Design",
-      category: "Web Design",
+      title: "AirCommerce UI/UX Design",
+      category: "UI/UX Design",
       description: "Modern dark themed e-commerce UI design in Figma.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      tags: ["Figma", "UI/UX", "Web Design"],
+      tags: ["Figma", "UI/UX", "Web UI"],
       client: "AirCommerce",
       date: "July 2026",
       link: "https://figma.com"
@@ -46,9 +46,9 @@ export const initialData = {
       id: "p2",
       title: "Dark Fashion Mobile App",
       category: "App Design",
-      description: "Sleek iOS app design with dark theme interface.",
+      description: "Sleek iOS app design with dark theme interface in Adobe XD.",
       image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80",
-      tags: ["Figma", "App Design"],
+      tags: ["Adobe XD", "App Design"],
       client: "NexGen Apparel",
       date: "June 2026",
       link: "https://behance.net"
@@ -59,18 +59,18 @@ export const initialData = {
       category: "UI/UX Design",
       description: "High converting SaaS financial mobile app UI.",
       image: "https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=800&q=80",
-      tags: ["UI/UX", "FinTech"],
+      tags: ["UI/UX", "Figma"],
       client: "PayFlex Tech",
       date: "May 2026",
       link: "https://dribbble.com"
     },
     {
       id: "p4",
-      title: "Minimalist SaaS Landing Page",
-      category: "Web Design",
-      description: "Clean dark landing page with orange accents.",
+      title: "Minimalist SaaS Web Banner",
+      category: "Banner & Ad Design",
+      description: "Clean dark promotional banner with orange accents in Photoshop.",
       image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
-      tags: ["Figma", "Landing Page"],
+      tags: ["Photoshop", "Banner Design"],
       client: "CloudPulse Analytics",
       date: "April 2026",
       link: "https://figma.com"
@@ -79,7 +79,7 @@ export const initialData = {
       id: "p5",
       title: "Brand Logo & Style Guide",
       category: "Branding",
-      description: "Complete vector logo identity & brand assets.",
+      description: "Complete vector logo identity & brand assets in Illustrator.",
       image: "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
       tags: ["Branding", "Illustrator"],
       client: "Artisan Co.",
@@ -88,12 +88,12 @@ export const initialData = {
     },
     {
       id: "p6",
-      title: "Crypto Wallet Mobile App",
-      category: "App Design",
-      description: "Web3 crypto wallet mobile application interface.",
+      title: "Video Editing Promo Reel",
+      category: "Graphic Design",
+      description: "Dynamic video motion reel created in Premiere Pro.",
       image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-      tags: ["App Design", "Crypto"],
-      client: "CryptoVault",
+      tags: ["Premiere Pro", "Video Editing"],
+      client: "Creative Studio",
       date: "February 2026",
       link: "https://dribbble.com"
     }
@@ -102,13 +102,13 @@ export const initialData = {
     {
       id: "srv1",
       title: "App Design",
-      description: "User-focused mobile application UI/UX design built for iOS & Android.",
+      description: "User-focused mobile application UI/UX design in Figma & Adobe XD.",
       icon: "Smartphone"
     },
     {
       id: "srv2",
       title: "Web Design",
-      description: "Modern, responsive website design with high performance and intuitive layouts.",
+      description: "Modern landing page & website UI/UX designs with intuitive user flows.",
       icon: "Globe"
     },
     {
@@ -120,7 +120,7 @@ export const initialData = {
     {
       id: "srv4",
       title: "Graphic Design",
-      description: "Creative visual design, brand assets, typography, and color theory systems.",
+      description: "Creative visual graphics, vector art, typography, and color theory systems in Illustrator & Photoshop.",
       icon: "Image"
     },
     {
@@ -132,17 +132,17 @@ export const initialData = {
     {
       id: "srv6",
       title: "Banner & Ad Design",
-      description: "High-converting digital advertisement banners, social media graphics, and promos.",
+      description: "High-converting digital advertisement banners, social media graphics, and video promos in Premiere Pro.",
       icon: "Megaphone"
     }
   ],
   experience: [
     {
       id: "e1",
-      role: "UI/UX Design Intern",
+      role: "UI/UX & Graphic Design Intern",
       company: "Creative IT Institute",
       period: "Sep 2025 - Nov 2025",
-      description: "Crafted user-centric digital experiences, interactive wireframes, and UI/UX solutions."
+      description: "Crafted user-centric digital experiences, wireframes, prototypes, and visual design assets."
     }
   ],
   education: [
@@ -174,5 +174,6 @@ export const initialData = {
   ],
   messages: []
 };
+
 
 
