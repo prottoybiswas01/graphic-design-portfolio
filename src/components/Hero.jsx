@@ -142,9 +142,8 @@ export const Hero = () => {
               </a>
 
               <a
-                href="https://drive.google.com/file/d/1oLDTucuVrr2fwt3e5jAsGoFr6tpCfT51/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
+                href="https://drive.google.com/uc?export=download&id=1oLDTucuVrr2fwt3e5jAsGoFr6tpCfT51"
+                download="Prottoy_Kumar_Biswas_CV.pdf"
                 className="btn-secondary"
                 style={{
                   padding: '12px 28px',
@@ -159,6 +158,7 @@ export const Hero = () => {
               >
                 Download CV
               </a>
+
 
             </div>
 
