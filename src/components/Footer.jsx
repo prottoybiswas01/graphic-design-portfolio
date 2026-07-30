@@ -22,13 +22,14 @@ export const Footer = () => {
             src="/logo.png"
             alt="kodlv.uk"
             style={{
-              height: '42px',
+              height: '56px',
               width: 'auto',
               objectFit: 'contain',
               display: 'block'
             }}
           />
         </div>
+
 
 
         {/* Center Nav Links */}

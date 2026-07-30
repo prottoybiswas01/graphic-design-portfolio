@@ -43,13 +43,14 @@ export const Navbar = ({ onOpenAdmin }) => {
             src="/logo.png"
             alt="kodlv.uk"
             style={{
-              height: '38px',
+              height: '52px',
               width: 'auto',
               objectFit: 'contain',
               display: 'block'
             }}
           />
         </a>
+
 
 
         {/* Center Nav Links */}
