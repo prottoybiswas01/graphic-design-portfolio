@@ -281,7 +281,8 @@ export const Hero = () => {
           </div>
 
           {/* Right Column: Much Larger Portrait Photo with Large Circle Backdrop */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '620px', position: 'relative' }}>
+          <div className="hero-avatar-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '620px', position: 'relative' }}>
+
             {/* Rotating Lighting Aura Ring */}
             <div
               className="animate-spin-aura"

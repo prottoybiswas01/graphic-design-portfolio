@@ -169,7 +169,8 @@ export const About = () => {
           className="about-grid"
         >
           {/* Left: Much Larger Portrait Photo with Archway Backdrop & Rotating Lighting Aura */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '560px', position: 'relative' }}>
+          <div className="about-avatar-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '560px', position: 'relative' }}>
+
             {/* Spinning Lighting Aura Ring */}
             <div
               className="animate-spin-aura"
