@@ -39,10 +39,18 @@ export const Navbar = ({ onOpenAdmin }) => {
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Logo */}
         <a href="#hero" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ fontWeight: 800, fontSize: '1.5rem', color: '#FD6F00', letterSpacing: '0.5px' }}>
-            LOGO
-          </span>
+          <img
+            src="/logo.png"
+            alt="kodlv.uk"
+            style={{
+              height: '38px',
+              width: 'auto',
+              objectFit: 'contain',
+              display: 'block'
+            }}
+          />
         </a>
+
 
         {/* Center Nav Links */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-nav">

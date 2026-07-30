@@ -17,11 +17,19 @@ export const Footer = () => {
     >
       <div className="container">
         {/* LOGO */}
-        <div style={{ marginBottom: '24px' }}>
-          <span style={{ fontWeight: 800, fontSize: '1.8rem', color: '#FD6F00', letterSpacing: '1px' }}>
-            LOGO
-          </span>
+        <div style={{ marginBottom: '24px', display: 'flex', justifyContent: 'center' }}>
+          <img
+            src="/logo.png"
+            alt="kodlv.uk"
+            style={{
+              height: '42px',
+              width: 'auto',
+              objectFit: 'contain',
+              display: 'block'
+            }}
+          />
         </div>
+
 
         {/* Center Nav Links */}
         <div
