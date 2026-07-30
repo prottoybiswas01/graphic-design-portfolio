@@ -143,17 +143,17 @@ export const About = () => {
           }}
           className="about-grid"
         >
-          {/* Left: Much Larger Archway Backdrop Avatar with Head Popping Out */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '490px', position: 'relative' }}>
+          {/* Left: Much Larger Portrait Photo with Archway Backdrop */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '560px', position: 'relative' }}>
             {/* Dark Archway (Dome/Doorway shape) Backdrop */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '410px',
-                height: '420px',
-                borderTopLeftRadius: '205px',
-                borderTopRightRadius: '205px',
+                width: '430px',
+                height: '440px',
+                borderTopLeftRadius: '215px',
+                borderTopRightRadius: '215px',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px',
                 background: '#181818',
@@ -163,15 +163,15 @@ export const About = () => {
               }}
             />
 
-            {/* Layer 1: Body masked INSIDE large archway shape at bottom */}
+            {/* Layer 1: Body masked INSIDE archway shape at bottom */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '410px',
-                height: '420px',
-                borderTopLeftRadius: '205px',
-                borderTopRightRadius: '205px',
+                width: '430px',
+                height: '440px',
+                borderTopLeftRadius: '215px',
+                borderTopRightRadius: '215px',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px',
                 overflow: 'hidden',
@@ -186,7 +186,7 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '480px',
+                  height: '560px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -201,12 +201,12 @@ export const About = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '410px',
-                height: '480px',
+                width: '430px',
+                height: '560px',
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
-                clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)'
+                clipPath: 'polygon(0 0, 100% 0, 100% 42%, 0 42%)'
               }}
             >
               <img
@@ -217,13 +217,14 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '480px',
+                  height: '560px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
               />
             </div>
           </div>
+
 
 
 

@@ -202,18 +202,18 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Much Larger Round Circle Avatar Backdrop with Dramatic Pop-Out Head */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '540px', position: 'relative' }}>
+          {/* Right Column: Much Larger Portrait Photo with Large Circle Backdrop */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '620px', position: 'relative' }}>
             {/* Ambient Orange Backlight Glow */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '10px',
-                width: '500px',
-                height: '500px',
+                width: '520px',
+                height: '520px',
                 borderRadius: '50%',
                 background: 'radial-gradient(circle, rgba(253, 111, 0, 0.28) 0%, rgba(253, 111, 0, 0) 70%)',
-                filter: 'blur(40px)',
+                filter: 'blur(45px)',
                 zIndex: 0
               }}
             />
@@ -223,8 +223,8 @@ export const Hero = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '460px',
-                height: '460px',
+                width: '480px',
+                height: '480px',
                 borderRadius: '50%',
                 background: '#181818',
                 boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
@@ -233,13 +233,13 @@ export const Hero = () => {
               }}
             />
 
-            {/* Layer 1: Body masked INSIDE large circle at bottom */}
+            {/* Layer 1: Body masked INSIDE circle at bottom */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '460px',
-                height: '460px',
+                width: '480px',
+                height: '480px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 zIndex: 2
@@ -253,7 +253,7 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '530px',
+                  height: '620px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -268,12 +268,12 @@ export const Hero = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '460px',
-                height: '530px',
+                width: '480px',
+                height: '620px',
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
-                clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)'
+                clipPath: 'polygon(0 0, 100% 0, 100% 42%, 0 42%)'
               }}
             >
               <img
@@ -284,13 +284,14 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '530px',
+                  height: '620px',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
               />
             </div>
           </div>
+
 
 
 
