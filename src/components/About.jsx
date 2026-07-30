@@ -233,14 +233,16 @@ export const About = () => {
             <p
               style={{
                 color: '#9E9E9E',
-                fontSize: '0.92rem',
+                fontSize: '0.94rem',
                 lineHeight: 1.85,
                 marginBottom: '32px',
                 textAlign: 'justify'
               }}
             >
-              A software engineer, the modern-day architect of digital realms, navigates the ethereal landscapes of code, sculpting intangible structures that shape our technological world. With fingers poised over keyboards like virtuoso pianists, they compose symphonies of logic, their minds a labyrinth of algorithms and solutions. Their canvas is a screen, a vast expanse where lines of code dance in intricate patterns, weaving the fabric of programs and applications. Each keystroke is a brushstroke, crafting intricate architectures and breathing life into innovative designs. In this digital atelier, they don the mantle of problem solvers, confronting bugs and glitches like valiant knights in an ever-evolving quest for perfection. Debugging becomes a noble pursuit, unraveling the mysteries hidden within the tangled webs of code. designs. In this digital atelier.
+              {profile.aboutBio ||
+                "Hi! I'm Prottoy Kumar Biswas, a UI/UX Designer and Web Developer who crafts modern, user-focused digital experiences. I specialize in website design, app design, landing pages, and complete UI/UX solutions built with clarity, creativity, and purpose. On the development side, I work with Django, React, HTML, CSS, and JavaScript, allowing me to design and build fully functional, high-performance websites. My workflow aligns user needs with business goals to create products that are visually appealing, intuitive, and result-driven."}
             </p>
+
 
             <a
               href="#about"

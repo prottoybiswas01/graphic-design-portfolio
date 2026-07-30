@@ -1,26 +1,26 @@
 export const initialData = {
   profile: {
-    name: "Mohammad Tanvir",
-    title: "UI/UX designer",
-    greeting: "Hi I am",
-    subtitle: "Level 3 Certified Graphic Designer & UI/UX Specialist",
-    heroBio: "Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in. Scelerisque duis habitasse arcu id pretium maecenas habitasse. Metus maecenas habi.",
-    aboutBio: "A software engineer, also known as a computer programmer, writes the code that allows computer applications and software programs to function smoothly. They analyze users' needs, design and test software, and modify existing applications to ensure peak efficiency. Software engineers work across various industries creating tudo from operating systems to computer games.",
-    email: "tanvir.designer@example.com",
-    phone: "+880 1700-000000",
-    location: "Dhaka, Bangladesh",
-    availability: "Available for Freelance & Remote Projects",
+    name: "Prottoy Kumar Biswas",
+    title: "UX/UI Designer & Web Developer",
+    greeting: "Hi! I'm",
+    subtitle: "UX/UI Designer & Web Developer crafting modern digital experiences",
+    heroBio: "I specialize in website design, app design, landing pages, and complete UI/UX solutions built with clarity, creativity, and purpose.",
+    aboutBio: "Hi! I'm Prottoy Kumar Biswas, a UI/UX Designer and Web Developer who crafts modern, user-focused digital experiences. I specialize in website design, app design, landing pages, and complete UI/UX solutions built with clarity, creativity, and purpose. On the development side, I work with Django, React, HTML, CSS, and JavaScript, allowing me to design and build fully functional, high-performance websites. My workflow aligns user needs with business goals to create products that are visually appealing, intuitive, and result-driven.",
+    email: "prottoybiswas575358@gmail.com",
+    phone: "01978167016",
+    location: "Mirpur-10, Dhaka",
+    availability: "Available for Freelance & Full-time Projects",
     avatar: "/profile.png",
-    experienceYears: "3+",
-    completedProjects: 50,
-    clientSatisfaction: "100+",
-    nsdaLevel: "Level 3 Certified (NSD)",
+    experienceYears: "1+",
+    completedProjects: 25,
+    clientSatisfaction: "100%",
+    nsdaLevel: "Certified UX/UI Designer",
     socials: {
-      behance: "https://behance.net",
-      dribbble: "https://dribbble.net",
-      linkedin: "https://linkedin.com",
-      facebook: "https://facebook.com",
-      whatsapp: "https://wa.me/8801700000000"
+      behance: "https://behance.net/prottoybiswas",
+      dribbble: "https://dribbble.com/prottoybiswas",
+      linkedin: "https://linkedin.com/in/prottoybiswas",
+      facebook: "https://facebook.com/prottoybiswas",
+      whatsapp: "https://wa.me/8801978167016"
     }
   },
   skills: [
@@ -102,49 +102,77 @@ export const initialData = {
     {
       id: "srv1",
       title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur. Imperdiet convallis blan dit felis ligula egestas id id ut imperdiet.",
+      description: "User-focused mobile application UI/UX design built for iOS & Android.",
       icon: "Smartphone"
     },
     {
       id: "srv2",
       title: "Web Design",
-      description: "Lorem ipsum dolor sit amet consectetur. Imperdiet convallis blan dit felis ligula egestas id id ut imperdiet.",
+      description: "Modern, responsive website design with high performance and intuitive layouts.",
       icon: "Globe"
     },
     {
       id: "srv3",
       title: "UI/UX Design",
-      description: "Lorem ipsum dolor sit amet consectetur. Imperdiet convallis blan dit felis ligula egestas id id ut imperdiet.",
+      description: "Complete user interface & user experience solutions with wireframes & prototypes.",
       icon: "Layout"
     },
     {
       id: "srv4",
       title: "Graphic Design",
-      description: "Lorem ipsum dolor sit amet consectetur. Imperdiet convallis blan dit felis ligula egestas id id ut imperdiet.",
+      description: "Creative visual design, brand assets, typography, and color theory systems.",
       icon: "Image"
     },
     {
       id: "srv5",
       title: "Brand Identity",
-      description: "Lorem ipsum dolor sit amet consectetur. Imperdiet convallis blan dit felis ligula egestas id id ut imperdiet.",
+      description: "Distinctive logo design, style guides, and complete brand identity packages.",
       icon: "Award"
     },
     {
       id: "srv6",
       title: "Banner & Ad Design",
-      description: "Lorem ipsum dolor sit amet consectetur. Imperdiet convallis blan dit felis ligula egestas id id ut imperdiet.",
+      description: "High-converting digital advertisement banners, social media graphics, and promos.",
       icon: "Megaphone"
     }
   ],
   experience: [
     {
       id: "e1",
-      role: "Graphic Design Level 3 Certified Specialist",
-      company: "National Skill Development Authority (NSDA / NSD)",
-      period: "2026 - Present",
-      description: "Certified in Graphic Design for Freelancing Level 3."
+      role: "UI/UX Design Intern",
+      company: "Creative IT Institute",
+      period: "Sep 2025 - Nov 2025",
+      description: "Crafted user-centric digital experiences, interactive wireframes, and UI/UX solutions."
+    }
+  ],
+  education: [
+    {
+      id: "ed1",
+      degree: "Diploma in Engineering (CST)",
+      institution: "Mangrove Institute of Science and Technology"
+    }
+  ],
+  certifications: [
+    {
+      id: "c1",
+      title: "UX/UI Design",
+      institution: "Creative IT Institute, Dhaka",
+      year: "2025"
+    },
+    {
+      id: "c2",
+      title: "Database Management Software",
+      institution: "Bangladesh Technical Education Board (BTEB)",
+      year: "2020"
+    },
+    {
+      id: "c3",
+      title: "Advance Office Application",
+      institution: "Step by Step Institute",
+      year: "2018"
     }
   ],
   messages: []
 };
+
 
