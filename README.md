@@ -132,5 +132,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 <p center>
-Developed with ❤️ for <b>Prottoy Kumar Biswas</b> (Mohammad Tanvir) - Graphic Designer & UI Specialist.
+Developed with ❤️ for <b>Prottoy Kumar Biswas</b> - Graphic Designer & UI Specialist.
 </p>

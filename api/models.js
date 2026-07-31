@@ -2,17 +2,17 @@ import mongoose from 'mongoose';
 
 // Profile Schema
 const ProfileSchema = new mongoose.Schema({
-  name: { type: String, default: "Mohammad Tanvir" },
-  title: { type: String, default: "Level 3 Certified Graphic Designer & UI Specialist" },
-  subtitle: { type: String, default: "NSD/NSDA Level 3 Certified Freelancer" },
+  name: { type: String, default: "Prottoy Kumar Biswas" },
+  title: { type: String, default: "UI/UX Designer & Graphic Designer" },
+  subtitle: { type: String, default: "UI/UX Designer & Graphic Designer specializing in Figma, Adobe XD, Photoshop, Illustrator & Premiere Pro" },
   heroBio: { type: String },
-  email: { type: String, default: "tanvir.designer@example.com" },
-  phone: { type: String, default: "+880 1700-000000" },
-  location: { type: String, default: "Dhaka, Bangladesh" },
-  availability: { type: String, default: "Available for Freelance & Remote Projects" },
+  email: { type: String, default: "prottoybiswas575358@gmail.com" },
+  phone: { type: String, default: "01978167016" },
+  location: { type: String, default: "Jhenaidah Sadar, Jhenaidah" },
+  availability: { type: String, default: "Available for Freelance & Remote Graphic Design Projects" },
   avatar: { type: String, default: "/profile.png" },
-  experienceYears: { type: String, default: "3+" },
-  completedProjects: { type: Number, default: 54 },
+  experienceYears: { type: String, default: "1+" },
+  completedProjects: { type: Number, default: 25 },
   clientSatisfaction: { type: String, default: "100%" },
   nsdaLevel: { type: String, default: "Level 3 Certified (NSD)" },
   socials: {
