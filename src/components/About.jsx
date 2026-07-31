@@ -169,9 +169,9 @@ export const About = () => {
           className="about-grid"
         >
           {/* Left Column: About Pop-Out Avatar matching Demo Image 1 */}
-          <div className="about-avatar-container">
+          <div className="about-avatar-container" style={{ position: 'relative', width: '100%', maxWidth: '440px', height: '540px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
 
-            {/* Spinning Lighting Aura Ring */}
+            {/* Spinning Lighting Aura Ring - Centered Directly Behind Archway */}
             <div
               className="animate-spin-aura"
               style={{
@@ -179,10 +179,10 @@ export const About = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '88%',
-                height: '78%',
-                borderTopLeftRadius: '200px',
-                borderTopRightRadius: '200px',
+                width: '420px',
+                height: '430px',
+                borderTopLeftRadius: '210px',
+                borderTopRightRadius: '210px',
                 background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
                 filter: 'blur(25px)',
                 opacity: 0.65,
@@ -190,7 +190,7 @@ export const About = () => {
               }}
             />
 
-            {/* Ambient Orange Backlight Glow */}
+            {/* Ambient Orange Backlight Glow - Centered Directly Behind Archway */}
             <div
               className="animate-float-orb"
               style={{
@@ -198,58 +198,85 @@ export const About = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '92%',
-                height: '80%',
-                borderTopLeftRadius: '200px',
-                borderTopRightRadius: '200px',
-                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.35) 0%, rgba(253, 111, 0, 0) 70%)',
+                width: '440px',
+                height: '440px',
+                borderTopLeftRadius: '220px',
+                borderTopRightRadius: '220px',
+                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.38) 0%, rgba(253, 111, 0, 0) 70%)',
                 filter: 'blur(45px)',
                 zIndex: 0
               }}
             />
 
-            {/* Dark Archway (Dome/Doorway Shape) Backdrop (Matches Demo Image 1) */}
+            {/* Dark Archway (Dome/Doorway Shape) Backdrop with Masked Body (Hides straight bottom cut line) */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '85%',
-                height: '76%',
-                borderTopLeftRadius: '190px',
-                borderTopRightRadius: '190px',
+                width: '400px',
+                height: '410px',
+                borderTopLeftRadius: '200px',
+                borderTopRightRadius: '200px',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px',
                 background: '#181818',
-                border: '1px solid rgba(253, 111, 0, 0.25)',
-                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
+                border: '2px solid rgba(253, 111, 0, 0.35)',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.85)',
+                overflow: 'hidden',
                 zIndex: 1
               }}
-            />
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  height: '540px',
+                  maxWidth: 'none',
+                  objectFit: 'contain',
+                  objectPosition: 'bottom center'
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+                }}
+              />
+            </div>
 
-            {/* Single Continuous Person PNG (Head pops out above Archway dome) */}
-            <img
-              src={profile.avatar}
-              alt={profile.name}
+            {/* Head Pop-Out Layer (Head & Shoulders extend above top of Archway dome) */}
+            <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                height: '100%',
-                width: 'auto',
-                maxWidth: '100%',
-                objectFit: 'contain',
-                objectPosition: 'bottom center',
+                width: '400px',
+                height: '540px',
+                overflow: 'hidden',
                 zIndex: 2,
-                display: 'block',
-                filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.5))'
+                pointerEvents: 'none',
+                clipPath: 'polygon(0 0, 100% 0, 100% 30%, 0 30%)'
               }}
-              onError={(e) => {
-                e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-              }}
-            />
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  height: '540px',
+                  maxWidth: 'none',
+                  objectFit: 'contain',
+                  objectPosition: 'bottom center'
+                }}
+              />
+            </div>
           </div>
 
 

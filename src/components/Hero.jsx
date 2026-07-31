@@ -282,9 +282,9 @@ export const Hero = () => {
           </div>
 
           {/* Right Column: Hero Pop-Out Avatar matching Demo Image 2 */}
-          <div className="hero-avatar-container">
+          <div className="hero-avatar-container" style={{ position: 'relative', width: '100%', maxWidth: '480px', height: '580px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
 
-            {/* Rotating Lighting Aura Ring */}
+            {/* Rotating Lighting Aura Ring - Centered Directly Behind Disc */}
             <div
               className="animate-spin-aura"
               style={{
@@ -292,17 +292,17 @@ export const Hero = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '88%',
-                aspectRatio: '1 / 1',
+                width: '450px',
+                height: '450px',
                 borderRadius: '50%',
                 background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
-                filter: 'blur(20px)',
-                opacity: 0.7,
+                filter: 'blur(22px)',
+                opacity: 0.75,
                 zIndex: 0
               }}
             />
 
-            {/* Ambient Orange Backlight Glow */}
+            {/* Ambient Orange Backlight Glow - Centered Directly Behind Disc */}
             <div
               className="animate-float-orb"
               style={{
@@ -310,54 +310,81 @@ export const Hero = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '92%',
-                aspectRatio: '1 / 1',
+                width: '470px',
+                height: '470px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.38) 0%, rgba(253, 111, 0, 0) 70%)',
+                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.45) 0%, rgba(253, 111, 0, 0) 70%)',
                 filter: 'blur(45px)',
                 zIndex: 0
               }}
             />
 
-            {/* Dark Circle Disc Backdrop (Matches Demo Image 2) */}
+            {/* Dark Circle Disc Backdrop with Masked Body (Hides straight bottom cut line) */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '82%',
-                aspectRatio: '1 / 1',
+                width: '430px',
+                height: '430px',
                 borderRadius: '50%',
                 background: '#181818',
-                border: '1px solid rgba(253, 111, 0, 0.25)',
-                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
+                border: '2px solid rgba(253, 111, 0, 0.35)',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.85)',
+                overflow: 'hidden',
                 zIndex: 1
               }}
-            />
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  height: '580px',
+                  maxWidth: 'none',
+                  objectFit: 'contain',
+                  objectPosition: 'bottom center'
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+                }}
+              />
+            </div>
 
-            {/* Single Continuous Person PNG (Head pops out above circle) */}
-            <img
-              src={profile.avatar}
-              alt={profile.name}
+            {/* Head Pop-Out Layer (Head & Shoulders extend above top of circle disc) */}
+            <div
               style={{
                 position: 'absolute',
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                height: '100%',
-                width: 'auto',
-                maxWidth: '100%',
-                objectFit: 'contain',
-                objectPosition: 'bottom center',
+                width: '430px',
+                height: '580px',
+                overflow: 'hidden',
                 zIndex: 2,
-                display: 'block',
-                filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.5))'
+                pointerEvents: 'none',
+                clipPath: 'polygon(0 0, 100% 0, 100% 32%, 0 32%)'
               }}
-              onError={(e) => {
-                e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-              }}
-            />
+            >
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  height: '580px',
+                  maxWidth: 'none',
+                  objectFit: 'contain',
+                  objectPosition: 'bottom center'
+                }}
+              />
+            </div>
           </div>
 
 
