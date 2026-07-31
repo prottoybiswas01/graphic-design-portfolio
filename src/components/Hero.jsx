@@ -281,20 +281,22 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Seamless Responsive Portrait Photo with Glowing Circle Frame */}
-          <div className="hero-avatar-container" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' }}>
+          {/* Right Column: Hero Pop-Out Avatar matching Demo Image 2 */}
+          <div className="hero-avatar-container">
 
             {/* Rotating Lighting Aura Ring */}
             <div
               className="animate-spin-aura"
               style={{
                 position: 'absolute',
-                width: '100%',
-                maxWidth: '430px',
+                bottom: '0',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '88%',
                 aspectRatio: '1 / 1',
                 borderRadius: '50%',
                 background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
-                filter: 'blur(22px)',
+                filter: 'blur(20px)',
                 opacity: 0.7,
                 zIndex: 0
               }}
@@ -305,49 +307,54 @@ export const Hero = () => {
               className="animate-float-orb"
               style={{
                 position: 'absolute',
-                width: '100%',
-                maxWidth: '450px',
+                bottom: '0',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '92%',
                 aspectRatio: '1 / 1',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.35) 0%, rgba(253, 111, 0, 0) 70%)',
-                filter: 'blur(40px)',
+                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.38) 0%, rgba(253, 111, 0, 0) 70%)',
+                filter: 'blur(45px)',
                 zIndex: 0
               }}
             />
 
-            {/* Main Single Portrait Photo Frame */}
+            {/* Dark Circle Disc Backdrop (Matches Demo Image 2) */}
             <div
               style={{
-                position: 'relative',
-                width: '100%',
-                maxWidth: '400px',
+                position: 'absolute',
+                bottom: '0',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '85%',
                 aspectRatio: '1 / 1',
                 borderRadius: '50%',
-                background: 'linear-gradient(180deg, #1E1E1E 0%, #121212 100%)',
-                border: '3px solid rgba(253, 111, 0, 0.45)',
-                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(253, 111, 0, 0.3)',
-                overflow: 'hidden',
-                zIndex: 1,
-                display: 'flex',
-                alignItems: 'flex-end',
-                justifyContent: 'center'
+                background: '#181818',
+                border: '1px solid rgba(253, 111, 0, 0.25)',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
+                zIndex: 1
               }}
-            >
-              <img
-                src={profile.avatar}
-                alt={profile.name}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'top center',
-                  display: 'block'
-                }}
-                onError={(e) => {
-                  e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-                }}
-              />
-            </div>
+            />
+
+            {/* Single Continuous Person PNG (Head pops out above circle) */}
+            <img
+              src={profile.avatar}
+              alt={profile.name}
+              style={{
+                position: 'relative',
+                height: '100%',
+                width: 'auto',
+                maxWidth: '100%',
+                objectFit: 'contain',
+                objectPosition: 'bottom center',
+                zIndex: 2,
+                display: 'block',
+                filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.5))'
+              }}
+              onError={(e) => {
+                e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+              }}
+            />
           </div>
 
 
