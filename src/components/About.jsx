@@ -169,7 +169,7 @@ export const About = () => {
           className="about-grid"
         >
           {/* Left Column: About Pop-Out Avatar matching Demo Image 1 */}
-          <div className="about-avatar-container" style={{ position: 'relative', width: '100%', maxWidth: '440px', height: '540px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
+          <div className="about-avatar-container" style={{ position: 'relative', width: '100%', maxWidth: '480px', height: '590px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
 
             {/* Spinning Lighting Aura Ring - Centered Directly Behind Archway */}
             <div
@@ -178,11 +178,11 @@ export const About = () => {
                 position: 'absolute',
                 bottom: '0',
                 left: '50%',
-                transform: 'translateX(-50%)',
-                width: '420px',
-                height: '430px',
-                borderTopLeftRadius: '210px',
-                borderTopRightRadius: '210px',
+                transform: 'translate(-50%, 0)',
+                width: '440px',
+                height: '450px',
+                borderTopLeftRadius: '225px',
+                borderTopRightRadius: '225px',
                 background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
                 filter: 'blur(25px)',
                 opacity: 0.65,
@@ -197,11 +197,11 @@ export const About = () => {
                 position: 'absolute',
                 bottom: '0',
                 left: '50%',
-                transform: 'translateX(-50%)',
-                width: '440px',
-                height: '440px',
-                borderTopLeftRadius: '220px',
-                borderTopRightRadius: '220px',
+                transform: 'translate(-50%, 0)',
+                width: '460px',
+                height: '460px',
+                borderTopLeftRadius: '230px',
+                borderTopRightRadius: '230px',
                 background: 'radial-gradient(circle, rgba(253, 111, 0, 0.38) 0%, rgba(253, 111, 0, 0) 70%)',
                 filter: 'blur(45px)',
                 zIndex: 0
@@ -215,15 +215,15 @@ export const About = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '400px',
-                height: '410px',
-                borderTopLeftRadius: '200px',
-                borderTopRightRadius: '200px',
+                width: '420px',
+                height: '430px',
+                borderTopLeftRadius: '210px',
+                borderTopRightRadius: '210px',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px',
                 background: '#181818',
                 border: '2px solid rgba(253, 111, 0, 0.35)',
-                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.85)',
+                boxShadow: '0 25px 60px rgba(0, 0, 0, 0.85)',
                 overflow: 'hidden',
                 zIndex: 1
               }}
@@ -236,7 +236,7 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '540px',
+                  height: '590px',
                   maxWidth: 'none',
                   objectFit: 'contain',
                   objectPosition: 'bottom center'
@@ -254,8 +254,8 @@ export const About = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '400px',
-                height: '540px',
+                width: '420px',
+                height: '590px',
                 overflow: 'hidden',
                 zIndex: 2,
                 pointerEvents: 'none',
@@ -270,7 +270,7 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '540px',
+                  height: '590px',
                   maxWidth: 'none',
                   objectFit: 'contain',
                   objectPosition: 'bottom center'

@@ -282,36 +282,36 @@ export const Hero = () => {
           </div>
 
           {/* Right Column: Hero Pop-Out Avatar matching Demo Image 2 */}
-          <div className="hero-avatar-container" style={{ position: 'relative', width: '100%', maxWidth: '480px', height: '580px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
+          <div className="hero-avatar-container" style={{ position: 'relative', width: '100%', maxWidth: '520px', height: '640px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
 
-            {/* Rotating Lighting Aura Ring - Centered Directly Behind Disc */}
+            {/* Rotating Lighting Aura Ring - Centered Directly Behind Circle Disc */}
             <div
               className="animate-spin-aura"
               style={{
                 position: 'absolute',
                 bottom: '0',
                 left: '50%',
-                transform: 'translateX(-50%)',
-                width: '450px',
-                height: '450px',
+                transform: 'translate(-50%, 0)',
+                width: '480px',
+                height: '480px',
                 borderRadius: '50%',
                 background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
-                filter: 'blur(22px)',
+                filter: 'blur(24px)',
                 opacity: 0.75,
                 zIndex: 0
               }}
             />
 
-            {/* Ambient Orange Backlight Glow - Centered Directly Behind Disc */}
+            {/* Ambient Orange Backlight Glow - Centered Directly Behind Circle Disc */}
             <div
               className="animate-float-orb"
               style={{
                 position: 'absolute',
                 bottom: '0',
                 left: '50%',
-                transform: 'translateX(-50%)',
-                width: '470px',
-                height: '470px',
+                transform: 'translate(-50%, 0)',
+                width: '500px',
+                height: '500px',
                 borderRadius: '50%',
                 background: 'radial-gradient(circle, rgba(253, 111, 0, 0.45) 0%, rgba(253, 111, 0, 0) 70%)',
                 filter: 'blur(45px)',
@@ -326,12 +326,12 @@ export const Hero = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '430px',
-                height: '430px',
+                width: '450px',
+                height: '450px',
                 borderRadius: '50%',
                 background: '#181818',
                 border: '2px solid rgba(253, 111, 0, 0.35)',
-                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.85)',
+                boxShadow: '0 25px 60px rgba(0, 0, 0, 0.85)',
                 overflow: 'hidden',
                 zIndex: 1
               }}
@@ -344,7 +344,7 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '580px',
+                  height: '640px',
                   maxWidth: 'none',
                   objectFit: 'contain',
                   objectPosition: 'bottom center'
@@ -362,8 +362,8 @@ export const Hero = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '430px',
-                height: '580px',
+                width: '450px',
+                height: '640px',
                 overflow: 'hidden',
                 zIndex: 2,
                 pointerEvents: 'none',
@@ -378,7 +378,7 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '580px',
+                  height: '640px',
                   maxWidth: 'none',
                   objectFit: 'contain',
                   objectPosition: 'bottom center'
