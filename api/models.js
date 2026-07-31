@@ -40,7 +40,7 @@ const ProjectSchema = new mongoose.Schema({
 // Skill Schema
 const SkillSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  category: { type: String, required: true },
+  category: { type: String, default: 'UI/UX & Design' },
   level: { type: Number, default: 90 },
   icon: { type: String, default: 'Cpu' },
   color: { type: String, default: '#8B5CF6' }

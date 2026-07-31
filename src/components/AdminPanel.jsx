@@ -238,7 +238,7 @@ export const AdminPanel = ({ isOpen, onClose }) => {
             <Lock size={48} color="var(--accent-primary)" style={{ marginBottom: '16px' }} />
             <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Admin Authentication</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', marginBottom: '24px' }}>
-              Enter your portfolio management password. Default password: <code style={{ color: 'var(--accent-secondary)' }}>admin123</code>
+              Enter your portfolio management password to access the admin portal.
             </p>
 
             <form onSubmit={handleLoginSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -260,19 +260,6 @@ export const AdminPanel = ({ isOpen, onClose }) => {
               />
               <button type="submit" className="btn-primary" style={{ justifyContent: 'center' }}>
                 Unlock Admin Dashboard <UserCheck size={18} />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => loginAdmin('admin123')}
-                style={{
-                  fontSize: '0.85rem',
-                  color: 'var(--accent-secondary)',
-                  marginTop: '10px',
-                  textDecoration: 'underline'
-                }}
-              >
-                Quick Flash Admin Access (Click to Login)
               </button>
             </form>
           </div>
@@ -298,8 +285,7 @@ export const AdminPanel = ({ isOpen, onClose }) => {
                 { id: 'profile', label: 'Edit Profile & Bio', icon: <Edit3 size={18} /> },
                 { id: 'projects', label: `Projects (${data.projects.length})`, icon: <FolderKanban size={18} /> },
                 { id: 'skills', label: `Skills (${data.skills.length})`, icon: <Cpu size={18} /> },
-                { id: 'messages', label: `Messages (${data.messages.filter(m => !m.read).length})`, icon: <MessageSquare size={18} /> },
-                { id: 'mongodb', label: 'MongoDB & Export', icon: <Database size={18} /> }
+                { id: 'messages', label: `Messages (${data.messages.filter(m => !m.read).length})`, icon: <MessageSquare size={18} /> }
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -716,68 +702,6 @@ export const AdminPanel = ({ isOpen, onClose }) => {
                       ))}
                     </div>
                   )}
-                </div>
-              )}
-
-              {/* Tab 6: MongoDB Export & API Integration */}
-              {activeTab === 'mongodb' && (
-                <div>
-                  <h3 style={{ fontSize: '1.4rem', marginBottom: '20px' }}>MongoDB Atlas & Serverless API Tools</h3>
-
-                  <div className="glass-panel" style={{ padding: '24px', borderRadius: 'var(--radius-md)', marginBottom: '24px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <Database size={24} color="var(--accent-emerald)" />
-                        <h4 style={{ fontSize: '1.1rem' }}>MongoDB Atlas Cluster Status</h4>
-                      </div>
-                      <span
-                        style={{
-                          padding: '4px 14px',
-                          borderRadius: 'var(--radius-full)',
-                          fontSize: '0.8rem',
-                          fontWeight: 700,
-                          background: dbConnected ? 'rgba(16,185,129,0.15)' : 'rgba(245,158,11,0.15)',
-                          color: dbConnected ? 'var(--accent-emerald)' : 'var(--accent-amber)',
-                          border: `1px solid ${dbConnected ? 'rgba(16,185,129,0.4)' : 'rgba(245,158,11,0.4)'}`
-                        }}
-                      >
-                        {dbConnected ? '🟢 Connected to MongoDB Atlas' : '🟡 Local Storage Offline Cache'}
-                      </span>
-                    </div>
-
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '18px', lineHeight: 1.6 }}>
-                      Connected Connection String: <code style={{ color: 'var(--accent-secondary)', wordBreak: 'break-all' }}>mongodb+srv://prottoybiswas575358_db_user:***@cluster0.xmbpnba.mongodb.net/portfolio</code>
-                    </p>
-
-                    <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                      <button onClick={exportMongoDBJSON} className="btn-primary" style={{ padding: '10px 22px' }}>
-                        Download MongoDB JSON Dump <Download size={18} />
-                      </button>
-
-                      <button onClick={seedMongoDBCluster} className="btn-secondary" style={{ padding: '10px 22px', color: 'var(--accent-secondary)' }}>
-                        Seed / Restore Sample Data to Cluster <Sparkles size={18} />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="glass-panel" style={{ padding: '24px', borderRadius: 'var(--radius-md)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-                      <RefreshCw size={22} color="var(--accent-rose)" />
-                      <h4 style={{ fontSize: '1.1rem' }}>Reset Portfolio Data to Default</h4>
-                    </div>
-
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '18px' }}>
-                      Reset all edited profile info, skills, and projects back to the original Level 3 Assessment sample data.
-                    </p>
-
-                    <button
-                      onClick={resetToDefault}
-                      className="btn-secondary"
-                      style={{ border: '1px solid rgba(244,63,94,0.4)', color: 'var(--accent-rose)' }}
-                    >
-                      Reset Data to Defaults
-                    </button>
-                  </div>
                 </div>
               )}
             </div>

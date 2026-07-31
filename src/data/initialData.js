@@ -25,11 +25,15 @@ export const initialData = {
 
   },
   skills: [
-    { id: "s1", name: "Figma", level: 100 },
-    { id: "s2", name: "Adobe XD", level: 100 },
-    { id: "s3", name: "Adobe Photoshop", level: 85 },
-    { id: "s4", name: "Adobe Illustrator", level: 60 },
-    { id: "s5", name: "Adobe Premiere", level: 70 }
+    { id: "s1", name: "Figma", level: 100, category: "UI/UX & Design" },
+    { id: "s2", name: "Adobe XD", level: 100, category: "UI/UX & Design" },
+    { id: "s3", name: "Adobe Photoshop", level: 85, category: "Graphic Design" },
+    { id: "s4", name: "Adobe Illustrator", level: 60, category: "Graphic Design" },
+    { id: "s5", name: "Adobe Premiere", level: 70, category: "Video Editing" },
+    { id: "s6", name: "React.js", level: 90, category: "Web Development" },
+    { id: "s7", name: "Django", level: 80, category: "Web Development" },
+    { id: "s8", name: "HTML5 & CSS3", level: 95, category: "Web Development" },
+    { id: "s9", name: "JavaScript (ES6+)", level: 88, category: "Web Development" }
   ],
   projects: [
     {
