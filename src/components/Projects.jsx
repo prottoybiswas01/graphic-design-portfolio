@@ -29,10 +29,10 @@ export const Projects = () => {
           <div
             style={{
               display: 'flex',
-              gap: '12px',
+              gap: '8px',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              marginTop: '32px'
+              marginTop: '28px'
             }}
           >
             {categories.map((cat) => (
@@ -40,9 +40,9 @@ export const Projects = () => {
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 style={{
-                  padding: '10px 24px',
+                  padding: '8px 18px',
                   borderRadius: '6px',
-                  fontSize: '0.88rem',
+                  fontSize: '0.85rem',
                   fontWeight: 600,
                   background: selectedCategory === cat ? '#FD6F00' : '#1E1E1E',
                   color: selectedCategory === cat ? '#FFFFFF' : '#9E9E9E',
@@ -60,7 +60,7 @@ export const Projects = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))',
             gap: '24px'
           }}
         >

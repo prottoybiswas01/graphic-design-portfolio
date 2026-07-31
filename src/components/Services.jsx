@@ -34,8 +34,8 @@ export const Services = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '30px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))',
+            gap: '24px'
           }}
         >
           {data.services.map((service, index) => (
@@ -44,7 +44,7 @@ export const Services = () => {
               className="animate-fade-up"
               style={{
                 background: 'linear-gradient(135deg, rgba(253, 111, 0, 0.14) 0%, rgba(22, 22, 22, 0.98) 100%)',
-                padding: '40px 32px',
+                padding: 'clamp(24px, 4vw, 40px) clamp(20px, 3vw, 32px)',
                 borderRadius: '16px',
                 border: '1px solid rgba(253, 111, 0, 0.18)',
                 animationDelay: `${index * 0.1}s`,

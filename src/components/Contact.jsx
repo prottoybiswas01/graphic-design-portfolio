@@ -86,7 +86,7 @@ export const Contact = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+              <div className="contact-form-grid">
                 <input
                   type="text"
                   required
@@ -124,7 +124,7 @@ export const Contact = () => {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+              <div className="contact-form-grid">
                 <input
                   type="text"
                   placeholder="Phone number"

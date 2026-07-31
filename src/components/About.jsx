@@ -168,8 +168,8 @@ export const About = () => {
           }}
           className="about-grid"
         >
-          {/* Left: Much Larger Portrait Photo with Archway Backdrop & Rotating Lighting Aura */}
-          <div className="about-avatar-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '560px', position: 'relative' }}>
+          {/* Left: Responsive Portrait Photo with Archway Backdrop & Rotating Lighting Aura */}
+          <div className="about-avatar-container">
 
             {/* Spinning Lighting Aura Ring */}
             <div
@@ -177,8 +177,11 @@ export const About = () => {
               style={{
                 position: 'absolute',
                 bottom: '10px',
-                width: '460px',
-                height: '460px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '107%',
+                height: '0',
+                paddingBottom: '107%',
                 borderRadius: '50%',
                 background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
                 filter: 'blur(25px)',
@@ -187,15 +190,17 @@ export const About = () => {
               }}
             />
 
-            {/* Dark Archway (Dome/Doorway shape) Backdrop */}
+            {/* Dark Archway Backdrop */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '430px',
-                height: '440px',
-                borderTopLeftRadius: '215px',
-                borderTopRightRadius: '215px',
+                left: '0',
+                width: '100%',
+                height: '0',
+                paddingBottom: '102.33%',
+                borderTopLeftRadius: '50%',
+                borderTopRightRadius: '50%',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px',
                 background: '#181818',
@@ -211,10 +216,12 @@ export const About = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '430px',
-                height: '440px',
-                borderTopLeftRadius: '215px',
-                borderTopRightRadius: '215px',
+                left: '0',
+                width: '100%',
+                height: '0',
+                paddingBottom: '102.33%',
+                borderTopLeftRadius: '50%',
+                borderTopRightRadius: '50%',
                 borderBottomLeftRadius: '0px',
                 borderBottomRightRadius: '0px',
                 overflow: 'hidden',
@@ -229,7 +236,7 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '560px',
+                  height: '130.23%',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -244,8 +251,9 @@ export const About = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '430px',
-                height: '560px',
+                left: '0',
+                width: '100%',
+                height: '130.23%',
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
@@ -260,7 +268,7 @@ export const About = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '560px',
+                  height: '100%',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -279,7 +287,7 @@ export const About = () => {
                 fontSize: '0.94rem',
                 lineHeight: 1.85,
                 marginBottom: '32px',
-                textAlign: 'justify'
+                textAlign: 'left'
               }}
             >
               {profile.aboutBio ||
@@ -314,9 +322,9 @@ export const About = () => {
         <div
           style={{
             display: 'flex',
-            justifyContent: 'space-around',
+            justifyContent: 'center',
             flexWrap: 'wrap',
-            gap: '30px',
+            gap: '24px',
             paddingTop: '20px'
           }}
         >
@@ -329,6 +337,9 @@ export const About = () => {
           .about-grid {
             grid-template-columns: 1fr !important;
             text-align: center;
+          }
+          .about-grid p {
+            text-align: center !important;
           }
         }
       `}</style>

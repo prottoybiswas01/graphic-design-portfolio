@@ -243,12 +243,13 @@ export const Hero = () => {
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '20px',
+                gap: '16px',
                 background: '#1E1E1E',
-                padding: '20px 24px',
+                padding: '16px 20px',
                 borderRadius: '12px',
                 border: '1px solid rgba(255, 255, 255, 0.05)',
-                maxWidth: '460px'
+                maxWidth: '460px',
+                width: '100%'
               }}
             >
               <div>
@@ -280,8 +281,8 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Much Larger Portrait Photo with Large Circle Backdrop */}
-          <div className="hero-avatar-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '620px', position: 'relative' }}>
+          {/* Right Column: Responsive Portrait Photo with Circle Backdrop */}
+          <div className="hero-avatar-container">
 
             {/* Rotating Lighting Aura Ring */}
             <div
@@ -289,8 +290,11 @@ export const Hero = () => {
               style={{
                 position: 'absolute',
                 bottom: '0px',
-                width: '510px',
-                height: '510px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '106%',
+                height: '0',
+                paddingBottom: '106%',
                 borderRadius: '50%',
                 background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
                 filter: 'blur(20px)',
@@ -304,9 +308,12 @@ export const Hero = () => {
               className="animate-float-orb"
               style={{
                 position: 'absolute',
-                bottom: '10px',
-                width: '520px',
-                height: '520px',
+                bottom: '0px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '108%',
+                height: '0',
+                paddingBottom: '108%',
                 borderRadius: '50%',
                 background: 'radial-gradient(circle, rgba(253, 111, 0, 0.35) 0%, rgba(253, 111, 0, 0) 70%)',
                 filter: 'blur(45px)',
@@ -319,8 +326,10 @@ export const Hero = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '480px',
-                height: '480px',
+                left: '0',
+                width: '100%',
+                height: '0',
+                paddingBottom: '100%',
                 borderRadius: '50%',
                 background: '#181818',
                 boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
@@ -335,8 +344,10 @@ export const Hero = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '480px',
-                height: '480px',
+                left: '0',
+                width: '100%',
+                height: '0',
+                paddingBottom: '100%',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 zIndex: 2
@@ -350,7 +361,7 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '620px',
+                  height: '129.17%',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}
@@ -365,8 +376,9 @@ export const Hero = () => {
               style={{
                 position: 'absolute',
                 bottom: '0',
-                width: '480px',
-                height: '620px',
+                left: '0',
+                width: '100%',
+                height: '129.17%',
                 overflow: 'hidden',
                 zIndex: 3,
                 pointerEvents: 'none',
@@ -381,7 +393,7 @@ export const Hero = () => {
                   bottom: '0',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  height: '620px',
+                  height: '100%',
                   maxWidth: 'none',
                   objectFit: 'cover'
                 }}

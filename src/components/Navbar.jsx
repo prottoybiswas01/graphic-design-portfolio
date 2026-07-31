@@ -108,16 +108,25 @@ export const Navbar = ({ onOpenAdmin }) => {
 
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
         <div
           style={{
-            background: 'var(--bg-surface)',
-            padding: '24px',
-            borderBottom: '1px solid var(--border-color)',
+            position: 'fixed',
+            top: scrolled ? '72px' : '84px',
+            left: 0,
+            width: '100%',
+            height: 'calc(100vh - 70px)',
+            background: 'rgba(18, 18, 18, 0.98)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            padding: '28px 24px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '16px'
+            gap: '16px',
+            zIndex: 999,
+            borderTop: '1px solid var(--border-color)',
+            overflowY: 'auto'
           }}
         >
           {navLinks.map((link) => (
@@ -126,14 +135,31 @@ export const Navbar = ({ onOpenAdmin }) => {
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               style={{
-                fontSize: '1.05rem',
+                fontSize: '1.15rem',
                 fontWeight: 600,
-                color: 'var(--text-primary)'
+                color: 'var(--text-primary)',
+                padding: '12px 0',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                display: 'block'
               }}
             >
               {link.name}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="btn-primary"
+            style={{
+              marginTop: '16px',
+              justifyContent: 'center',
+              padding: '12px 24px',
+              fontSize: '0.95rem',
+              fontWeight: 600
+            }}
+          >
+            Hire Me
+          </a>
         </div>
       )}
 

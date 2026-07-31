@@ -400,6 +400,46 @@ button {
   color: var(--text-primary);
 }
 
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Contact & Form Responsive Layouts */
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Hero & About Avatar Responsive Helpers */
+.hero-avatar-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 480px;
+  height: 620px;
+  margin: 0 auto;
+}
+
+.about-avatar-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 430px;
+  height: 560px;
+  margin: 0 auto;
+}
+
 /* Responsive Media Queries for Mobile & Tablet */
 @media (max-width: 992px) {
   .hero-grid, .about-grid {
@@ -407,13 +447,15 @@ button {
     gap: 40px !important;
   }
 
-  .hero-avatar-wrapper {
-    height: 480px !important;
+  .hero-avatar-container {
+    max-width: 420px;
+    height: 540px;
     margin-top: 20px;
   }
 
-  .about-avatar-wrapper {
-    height: 450px !important;
+  .about-avatar-container {
+    max-width: 380px;
+    height: 490px;
   }
 
   .desktop-nav {
@@ -427,15 +469,17 @@ button {
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 55px 0 !important;
+    padding: 50px 0 !important;
   }
 
-  .hero-avatar-wrapper {
-    height: 380px !important;
+  .hero-avatar-container {
+    max-width: 340px;
+    height: 440px;
   }
 
-  .about-avatar-wrapper {
-    height: 360px !important;
+  .about-avatar-container {
+    max-width: 320px;
+    height: 420px;
   }
 
   h1 {
@@ -451,18 +495,48 @@ button {
   }
 }
 
+@media (max-width: 600px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
 @media (max-width: 480px) {
-  .hero-avatar-wrapper {
-    height: 320px !important;
+  .hero-avatar-container {
+    max-width: 280px;
+    height: 360px;
   }
 
-  .about-avatar-wrapper {
-    height: 300px !important;
+  .about-avatar-container {
+    max-width: 270px;
+    height: 350px;
   }
 
   h1 {
-    font-size: 1.85rem !important;
+    font-size: 1.75rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .container {
+    padding: 0 12px !important;
   }
 }
+
+@media (max-width: 360px) {
+  .hero-avatar-container {
+    max-width: 240px;
+    height: 310px;
+  }
+
+  .about-avatar-container {
+    max-width: 240px;
+    height: 310px;
+  }
+}
+
 
 

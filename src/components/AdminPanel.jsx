@@ -278,9 +278,10 @@ export const AdminPanel = ({ isOpen, onClose }) => {
           </div>
         ) : (
           /* Main Admin Interface */
-          <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+          <div className="admin-main-container" style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
             {/* Sidebar Navigation */}
             <div
+              className="admin-sidebar"
               style={{
                 width: '230px',
                 borderRight: '1px solid var(--border-color)',
@@ -288,7 +289,8 @@ export const AdminPanel = ({ isOpen, onClose }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '8px',
-                background: 'rgba(0, 0, 0, 0.15)'
+                background: 'rgba(0, 0, 0, 0.15)',
+                flexShrink: 0
               }}
             >
               {[
@@ -313,7 +315,8 @@ export const AdminPanel = ({ isOpen, onClose }) => {
                     background: activeTab === tab.id ? 'var(--gradient-primary)' : 'transparent',
                     color: activeTab === tab.id ? '#ffffff' : 'var(--text-secondary)',
                     textAlign: 'left',
-                    transition: 'all 0.2s ease'
+                    transition: 'all 0.2s ease',
+                    whiteSpace: 'nowrap'
                   }}
                 >
                   {tab.icon}
@@ -323,13 +326,13 @@ export const AdminPanel = ({ isOpen, onClose }) => {
             </div>
 
             {/* Content Tab Panel */}
-            <div style={{ flex: 1, padding: '28px', overflowY: 'auto' }}>
+            <div className="admin-content-panel" style={{ flex: 1, padding: '28px', overflowY: 'auto' }}>
               {/* Tab 1: Dashboard Overview */}
               {activeTab === 'dashboard' && (
                 <div>
                   <h3 style={{ fontSize: '1.4rem', marginBottom: '20px' }}>Portfolio Overview & Stats</h3>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '30px' }}>
+                  <div className="admin-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '30px' }}>
                     <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-md)' }}>
                       <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Total Projects</div>
                       <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent-primary)' }}>
@@ -367,7 +370,7 @@ export const AdminPanel = ({ isOpen, onClose }) => {
                   <h3 style={{ fontSize: '1.4rem', marginBottom: '20px' }}>Edit Profile & Hero Banner Info</h3>
 
                   <form onSubmit={handleSaveProfile} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div className="admin-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                       <div>
                         <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Name</label>
                         <input
@@ -399,7 +402,7 @@ export const AdminPanel = ({ isOpen, onClose }) => {
                       />
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
+                    <div className="admin-grid-3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
                       <div>
                         <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Email</label>
                         <input
@@ -781,6 +784,29 @@ export const AdminPanel = ({ isOpen, onClose }) => {
           </div>
         )}
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .admin-main-container {
+            flex-direction: column !important;
+            overflow-y: auto !important;
+          }
+          .admin-sidebar {
+            width: 100% !important;
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            border-right: none !important;
+            border-bottom: 1px solid var(--border-color) !important;
+            padding: 8px !important;
+          }
+          .admin-content-panel {
+            padding: 16px !important;
+          }
+          .admin-grid-2, .admin-grid-3 {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

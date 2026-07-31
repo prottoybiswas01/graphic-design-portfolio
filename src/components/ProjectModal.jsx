@@ -15,7 +15,7 @@ export const ProjectModal = ({ project, onClose }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px'
+        padding: '12px'
       }}
       onClick={onClose}
     >
@@ -24,9 +24,9 @@ export const ProjectModal = ({ project, onClose }) => {
         style={{
           width: '100%',
           maxWidth: '750px',
-          maxHeight: '90vh',
+          maxHeight: '92vh',
           overflowY: 'auto',
-          padding: '32px',
+          padding: 'clamp(16px, 4vw, 32px)',
           borderRadius: 'var(--radius-lg)',
           position: 'relative',
           background: 'var(--bg-surface)'
@@ -38,27 +38,28 @@ export const ProjectModal = ({ project, onClose }) => {
           onClick={onClose}
           style={{
             position: 'absolute',
-            top: '20px',
-            right: '20px',
+            top: '16px',
+            right: '16px',
             width: '36px',
             height: '36px',
             borderRadius: '50%',
-            background: 'rgba(255, 255, 255, 0.08)',
+            background: 'rgba(0, 0, 0, 0.6)',
             color: 'var(--text-primary)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            zIndex: 10
           }}
         >
           <X size={20} />
         </button>
 
         {/* Project Image */}
-        <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: '24px' }}>
+        <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: '20px' }}>
           <img
             src={project.image}
             alt={project.title}
-            style={{ width: '100%', height: '360px', objectFit: 'cover' }}
+            style={{ width: '100%', height: 'clamp(180px, 35vh, 340px)', objectFit: 'cover' }}
           />
         </div>
 
