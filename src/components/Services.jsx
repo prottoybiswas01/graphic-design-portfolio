@@ -25,8 +25,8 @@ export const Services = () => {
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '12px' }}>
             Services
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '580px', margin: '0 auto', fontSize: '0.92rem' }}>
-            Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in.
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '620px', margin: '0 auto', fontSize: '1rem', lineHeight: 1.6 }}>
+            Providing comprehensive UI/UX design, graphic design, branding, and video editing solutions tailored to elevate your brand identity and digital presence.
           </p>
         </div>
 

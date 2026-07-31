@@ -152,7 +152,7 @@ export const About = () => {
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '10px' }}>
             About Me
           </h2>
-          <p style={{ color: '#9E9E9E', maxWidth: '650px', margin: '0 auto', fontSize: '0.95rem', fontWeight: 500 }}>
+          <p style={{ color: '#9E9E9E', maxWidth: '680px', margin: '0 auto', fontSize: '1.1rem', fontWeight: 500, lineHeight: 1.5 }}>
             User Interface And User Experience And Also Video Editing
           </p>
         </div>
@@ -168,45 +168,8 @@ export const About = () => {
           }}
           className="about-grid"
         >
-          {/* Left Column: About Pop-Out Avatar matching Demo Image 1 */}
+          {/* Left Column: About Pop-Out Avatar */}
           <div className="about-avatar-container" style={{ position: 'relative', width: '100%', maxWidth: '480px', height: '590px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
-
-            {/* Spinning Lighting Aura Ring - Centered Directly Behind Archway */}
-            <div
-              className="animate-spin-aura"
-              style={{
-                position: 'absolute',
-                bottom: '0',
-                left: '50%',
-                transform: 'translate(-50%, 0)',
-                width: '440px',
-                height: '450px',
-                borderTopLeftRadius: '225px',
-                borderTopRightRadius: '225px',
-                background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
-                filter: 'blur(25px)',
-                opacity: 0.65,
-                zIndex: 0
-              }}
-            />
-
-            {/* Ambient Orange Backlight Glow - Centered Directly Behind Archway */}
-            <div
-              className="animate-float-orb"
-              style={{
-                position: 'absolute',
-                bottom: '0',
-                left: '50%',
-                transform: 'translate(-50%, 0)',
-                width: '460px',
-                height: '460px',
-                borderTopLeftRadius: '230px',
-                borderTopRightRadius: '230px',
-                background: 'radial-gradient(circle, rgba(253, 111, 0, 0.38) 0%, rgba(253, 111, 0, 0) 70%)',
-                filter: 'blur(45px)',
-                zIndex: 0
-              }}
-            />
 
             {/* Dark Archway (Dome/Doorway Shape) Backdrop with Masked Body (Hides straight bottom cut line) */}
             <div
@@ -279,18 +242,16 @@ export const About = () => {
             </div>
           </div>
 
-
-
-
           {/* Right: Bio Text & Download CV Button */}
           <div>
             <p
               style={{
-                color: '#9E9E9E',
-                fontSize: '0.94rem',
+                color: '#D1D5DB',
+                fontSize: '1.15rem',
                 lineHeight: 1.85,
                 marginBottom: '32px',
-                textAlign: 'left'
+                textAlign: 'left',
+                fontWeight: 400
               }}
             >
               {profile.aboutBio ||

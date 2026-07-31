@@ -21,8 +21,8 @@ export const Projects = () => {
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', marginBottom: '12px' }}>
             Portfolio
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '580px', margin: '0 auto', fontSize: '0.92rem' }}>
-            Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in.
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '620px', margin: '0 auto', fontSize: '1rem', lineHeight: 1.6 }}>
+            Explore my latest UI/UX designs, web & mobile applications, brand identities, and creative graphics crafted for modern digital experiences.
           </p>
 
           {/* Category Filter Pills */}
