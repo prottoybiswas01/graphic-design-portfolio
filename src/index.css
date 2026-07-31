@@ -422,10 +422,9 @@ html, body, #root {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
-  max-width: 480px;
-  height: 620px;
+  max-width: 440px;
   margin: 0 auto;
 }
 
@@ -433,10 +432,9 @@ html, body, #root {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
-  max-width: 430px;
-  height: 560px;
+  max-width: 380px;
   margin: 0 auto;
 }
 
@@ -448,14 +446,12 @@ html, body, #root {
   }
 
   .hero-avatar-container {
-    max-width: 420px;
-    height: 540px;
+    max-width: 360px;
     margin-top: 20px;
   }
 
   .about-avatar-container {
-    max-width: 380px;
-    height: 490px;
+    max-width: 320px;
   }
 
   .desktop-nav {
@@ -473,13 +469,11 @@ html, body, #root {
   }
 
   .hero-avatar-container {
-    max-width: 340px;
-    height: 440px;
+    max-width: 300px;
   }
 
   .about-avatar-container {
-    max-width: 320px;
-    height: 420px;
+    max-width: 280px;
   }
 
   h1 {

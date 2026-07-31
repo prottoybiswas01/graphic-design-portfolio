@@ -281,23 +281,20 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Responsive Portrait Photo with Circle Backdrop */}
-          <div className="hero-avatar-container">
+          {/* Right Column: Seamless Responsive Portrait Photo with Glowing Circle Frame */}
+          <div className="hero-avatar-container" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' }}>
 
             {/* Rotating Lighting Aura Ring */}
             <div
               className="animate-spin-aura"
               style={{
                 position: 'absolute',
-                bottom: '0px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '106%',
-                height: '0',
-                paddingBottom: '106%',
+                width: '100%',
+                maxWidth: '430px',
+                aspectRatio: '1 / 1',
                 borderRadius: '50%',
                 background: 'conic-gradient(from 0deg, #FD6F00, transparent 40%, #00E5FF, transparent 80%, #FD6F00)',
-                filter: 'blur(20px)',
+                filter: 'blur(22px)',
                 opacity: 0.7,
                 zIndex: 0
               }}
@@ -308,94 +305,46 @@ export const Hero = () => {
               className="animate-float-orb"
               style={{
                 position: 'absolute',
-                bottom: '0px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '108%',
-                height: '0',
-                paddingBottom: '108%',
+                width: '100%',
+                maxWidth: '450px',
+                aspectRatio: '1 / 1',
                 borderRadius: '50%',
                 background: 'radial-gradient(circle, rgba(253, 111, 0, 0.35) 0%, rgba(253, 111, 0, 0) 70%)',
-                filter: 'blur(45px)',
+                filter: 'blur(40px)',
                 zIndex: 0
               }}
             />
 
-            {/* Large Dark Circle Disc */}
+            {/* Main Single Portrait Photo Frame */}
             <div
               style={{
-                position: 'absolute',
-                bottom: '0',
-                left: '0',
+                position: 'relative',
                 width: '100%',
-                height: '0',
-                paddingBottom: '100%',
+                maxWidth: '400px',
+                aspectRatio: '1 / 1',
                 borderRadius: '50%',
-                background: '#181818',
-                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.75)',
-                zIndex: 1,
-                border: '1px solid rgba(253, 111, 0, 0.2)'
-              }}
-            />
-
-
-            {/* Layer 1: Body masked INSIDE circle at bottom */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '0',
-                left: '0',
-                width: '100%',
-                height: '0',
-                paddingBottom: '100%',
-                borderRadius: '50%',
+                background: 'linear-gradient(180deg, #1E1E1E 0%, #121212 100%)',
+                border: '3px solid rgba(253, 111, 0, 0.45)',
+                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(253, 111, 0, 0.3)',
                 overflow: 'hidden',
-                zIndex: 2
+                zIndex: 1,
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'center'
               }}
             >
               <img
                 src={profile.avatar}
                 alt={profile.name}
                 style={{
-                  position: 'absolute',
-                  bottom: '0',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  height: '129.17%',
-                  maxWidth: 'none',
-                  objectFit: 'cover'
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                  display: 'block'
                 }}
                 onError={(e) => {
                   e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-                }}
-              />
-            </div>
-
-            {/* Layer 2: Head popping OUT significantly above circle top */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '0',
-                left: '0',
-                width: '100%',
-                height: '129.17%',
-                overflow: 'hidden',
-                zIndex: 3,
-                pointerEvents: 'none',
-                clipPath: 'polygon(0 0, 100% 0, 100% 42%, 0 42%)'
-              }}
-            >
-              <img
-                src={profile.avatar}
-                alt={profile.name}
-                style={{
-                  position: 'absolute',
-                  bottom: '0',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  height: '100%',
-                  maxWidth: 'none',
-                  objectFit: 'cover'
                 }}
               />
             </div>
