@@ -326,7 +326,7 @@ export const Hero = () => {
                 bottom: '0',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '85%',
+                width: '82%',
                 aspectRatio: '1 / 1',
                 borderRadius: '50%',
                 background: '#181818',
@@ -341,7 +341,10 @@ export const Hero = () => {
               src={profile.avatar}
               alt={profile.name}
               style={{
-                position: 'relative',
+                position: 'absolute',
+                bottom: '0',
+                left: '50%',
+                transform: 'translateX(-50%)',
                 height: '100%',
                 width: 'auto',
                 maxWidth: '100%',

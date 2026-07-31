@@ -233,7 +233,10 @@ export const About = () => {
               src={profile.avatar}
               alt={profile.name}
               style={{
-                position: 'relative',
+                position: 'absolute',
+                bottom: '0',
+                left: '50%',
+                transform: 'translateX(-50%)',
                 height: '100%',
                 width: 'auto',
                 maxWidth: '100%',
